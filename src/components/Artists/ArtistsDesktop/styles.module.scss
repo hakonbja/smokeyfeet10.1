@@ -1,0 +1,77 @@
+@import '../../../styles/variables.scss';
+
+.artists {
+  max-height: calc(100vh - 125px);
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  padding: 0 4.5rem;
+}
+
+.menu {
+  background-color: $black-backgr;
+  padding-top: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  width: 325px;
+  flex-shrink: 0;
+
+  h1 {
+    text-align: center;
+    border-bottom: solid white 8px;
+  }
+}
+
+.groups {
+  margin-top: 0.7rem;
+}
+
+.group {
+  position: relative;
+  cursor: pointer;
+
+  h2 {
+    font-size: 1.75rem;
+    @include addBottomPadding(1.75rem);
+    border-bottom: solid white 4px;
+  }
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: -10px;
+  font-size: 2.5rem;
+  color: $orange;
+  font-family: 'Neptune', sans-serif;
+}
+
+
+.list {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+
+  li {
+    display: inline-block;
+    box-sizing: border-box;
+    color: white;
+    padding: 2px 4px;
+    transition: all 300ms;
+    border: solid transparent 3px;
+  }
+
+  li:hover {
+    color: $orange;
+  }
+
+}
+
+
+.active > li {
+  border: solid $orange 3px;
+
+  &:hover {
+    color: white;
+  }
+}

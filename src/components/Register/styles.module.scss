@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+
+.register {
+  flex-grow: 1;
+  margin: 0 10rem;
+  padding: 2rem;
+  background-color: $black-backgr;
+
+  h1 {
+    text-align: right;
+  }
+}
+
+.compareTable {
+  font-family: 'Neptune', sans-serif;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1.75rem;
+  display: flex;
+  justify-content: center;
+
+  col {
+    text-align: right;
+  }
+
+  tr {
+    height: 45px;
+  }
+
+  th, td {
+    vertical-align: middle;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  th:first-child {
+    text-align: right;
+  }
+}
