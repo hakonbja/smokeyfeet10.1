@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
-import { Route, NavLink, Redirect } from 'react-router-dom';
-import styles from './styles.module.scss';
-import ArtistInfo from '../ArtistInfo/index';
-
-const ArtistsDesktop = (props) => {
-  
-  return (
-    <div className={styles.artists}>
-      <ArtistsMenu artists={props.artists}/>
-      <Redirect to="/artists/alice-felipe" />
-      <Route path="/artists/:slug">
-        <ArtistInfo artists={props.artists}/>
-      </Route>
-    </div>  
-  );
+import {
+  // Route,
+  NavLink,
+  // Redirect
 }
+  from 'react-router-dom';
+import styles from './styles.module.scss';
+// import ArtistInfo from '../ArtistInfo/index';
+
+// const ArtistsDesktop = (props) => {
+  
+//   return (
+//     <div className={styles.artists}>
+//       <ArtistsMenu artists={props.artists}/>
+//       <Redirect to="/artists/alice-felipe" />
+//       <Route path="/artists/:slug">
+//         <ArtistInfo artists={props.artists}/>
+//       </Route>
+//     </div>  
+//   );
+// }
 
 const ArtistsMenu = (props) => {
   const [isTeachersOpen, toggleTeachers] = useState(true);
@@ -76,4 +81,4 @@ const ArtistsList = (props) => {
   )
 }
 
-export default ArtistsDesktop;
+export default ArtistsMenu;

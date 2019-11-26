@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import ArtistsDesktop from './ArtistsDesktop/index';
-import ArtistsMobile from './ArtistsMobile/index';
+import { Route, Redirect } from 'react-router-dom';
+import styles from './styles.module.scss';
+import MenuDesktop from './MenuDesktop/index';
+import MenuMobile from './MenuMobile/index';
+import ArtistInfo from './ArtistInfo/index';
 
 const Artists = (props) => {
   const [artists, setArtists] = useState({info: [], isFetching: false});
@@ -9,15 +12,18 @@ const Artists = (props) => {
     fetchArtists(setArtists);
   }, []);
 
-  if (props.isDesktop) {
-    return (
-      <ArtistsDesktop artists={artists.info} isFetching={artists.isFetching}/>
-    );
-  }
-  
+  const ArtistsMenu = props.isDesktop ? <MenuDesktop artists={artists.info}/> : <MenuMobile artists={artists.info}/>;
+
   return (
-    <ArtistsMobile artists={artists.info}/>
-  )
+    <div className={styles.artists}>
+      {ArtistsMenu}
+      <Redirect to="/artists/alice-felipe" />
+      <Route path="/artists/:slug">
+        <ArtistInfo artists={artists.info}/>
+      </Route>
+    </div>
+  );
+
 
 }
 
