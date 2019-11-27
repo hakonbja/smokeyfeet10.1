@@ -7,20 +7,4 @@ const NameFunc = () => {
     );
 }
 
-class NameClass extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-
-    }
-  }
-
-  render() {
-    return (
-
-    );
-  }
-}
-
-export default xxx;
+export default NameFunc;

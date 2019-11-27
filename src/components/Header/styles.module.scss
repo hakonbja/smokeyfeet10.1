@@ -95,6 +95,8 @@ header {
     display: inline-block;
     color: white;
     font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
     padding: 1rem;
     transition: color 300ms;
     margin: 0 0.5rem;
@@ -145,7 +147,7 @@ header {
     overflow: hidden;
     // padding-bottom: 1rem;
     padding-top: 80px;
-    background-color: $black-light;
+    background-color: $black-backgr;
     display: block;
 
     a {

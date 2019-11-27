@@ -23,8 +23,10 @@
 
   @media screen and (max-width: 950px) {
     flex-direction: row;
+    flex-wrap: wrap;
     li {
       border: none;
+      margin: 0 0.25rem;
     }
   }
 }

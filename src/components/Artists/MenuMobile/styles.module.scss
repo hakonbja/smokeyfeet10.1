@@ -11,14 +11,15 @@
     font-size: 2.25rem;
     border-bottom: solid white 4px;
     align-self: center;
+    margin-bottom: 1rem;
   }
 }
 
 .group {
-  --h2-size: 1.25rem;
+  --h2-size: 1.75rem;
   --border-thickness: 3px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 
   h2 {
     font-size: var(--h2-size);
@@ -29,5 +30,17 @@
   }
   .active {
     border: solid $orange var(--border-thickness);
+  }
+
+  @media screen and (max-width: 480px) {
+    --h2-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 390px) {
+    --h2-size: 1.25rem;
+  }
+
+  @media screen and (max-width: 350px) {
+    --h2-size: 1.15rem;
   }
 }

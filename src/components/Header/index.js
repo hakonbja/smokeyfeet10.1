@@ -90,9 +90,10 @@ const Links = (props) => {
       </NavLink>
       );
     }
+    let slug = menuItem.name.toLowerCase().replace(/\s+/g, '-');
     return (
       <NavLink
-        to={`/page:${menuItem.page_id}`}
+        to={`/${slug}`}
         onClick={() => toggleMenu(false)}
         key={i}
         activeClassName={styles.active}

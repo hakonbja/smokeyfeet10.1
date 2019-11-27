@@ -7,6 +7,7 @@ import Footer from './components/Footer/index.js';
 import Home from './components/Home/index.js';
 import Artists from './components/Artists/index.js';
 import Register from './components/Register/index.js';
+import SinglePage from './components/SinglePage/index';
 
 class App extends React.Component {
   constructor(props) {
@@ -55,6 +56,9 @@ class App extends React.Component {
             </Route>
             <Route path="/register">
               <Register />
+            </Route>
+            <Route path="/:pageName">
+              <SinglePage />
             </Route>
           </Switch>
           <Footer />
