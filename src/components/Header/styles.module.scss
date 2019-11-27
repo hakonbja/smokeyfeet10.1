@@ -11,7 +11,6 @@ header {
   width: 100%;
   flex-shrink: 0;
   transition: top 300ms;
-  // overflow: hidden;
 }
 
 .left {
@@ -71,17 +70,15 @@ header {
     transition: background-color 300ms;
   }
 
-  @media not all and (hover: none) {
-    a:hover > li {
-      color: $orange;
-      border-color: $orange !important;
-    }
-  }
-  
   a:first-child > li {
     border: solid 2px white;
   }
 
+  @media not all and (hover: none) {
+    a:hover {
+      background-color: $black-medium;
+    }
+  }
 }
 
 .linksList {
@@ -240,15 +237,9 @@ header {
 }
 
 .active {
-  @media screen and (min-width: 950px) {
-    background-color: $black-medium;
-  }
-
-  @media screen and (max-width: 950px) {
-    li {
-      border-color: $orange !important;
-      color: $orange !important;
-    }
+  li {
+    color: $orange;
+    border-color: $orange !important;
   }
 }
 

@@ -10,11 +10,13 @@
   margin: 20px 0 20px 20px;
 
   @media screen and (max-width: 950px) {
-    display: flex;
-    flex-direction: column-reverse;
+    // display: flex;
+    // flex-direction: column-reverse;
     overflow-x: visible;
     margin: 0;
     background-color: $black-backgr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
   }
 }
 
@@ -24,7 +26,7 @@
   align-self: end;
   z-index: 2;
   max-height: 100%;
-  background-color: $white90;
+  background-color: $black-backgr;
   // border: white solid 12px;
   overflow-y: scroll;
 
@@ -32,14 +34,24 @@
     overflow-y: visible;
     background-color: transparent;
     border: none;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
   }
 }
 
 .bio {
   padding: 0.25rem 0.5rem 0.5rem;
 
+  @media screen and (max-width: 950px) {
+    padding: 0.5rem;
+  }
+
+  h4, p {
+    color: white;
+  }
+
   h4 {
-    color: black;
     margin-bottom: 0.5rem;
   }
 
@@ -50,13 +62,6 @@
 
   p:last-child {
     margin-bottom: 0;
-  }
-
-  
-  @media screen and (max-width: 950px) {
-    h4, p {
-      color: white;
-    }
   }
 }
 
@@ -70,12 +75,12 @@
 
   @media screen and (max-width: 950px) {
     align-self: center;
+    grid-column: 1;
+    grid-row: 1;
   }
 }
 
 .image {
-  // background-color: white;
-  // border: white solid 12px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -84,16 +89,25 @@
   position: relative;
 
   img {
+    position: relative;
+    display: block;
     object-fit: cover;
     width: 100%;
     height: auto;
   }
 
-  @media screen and (max-width: 950px) {
-    border: none;
-    // background-color: $white90;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(256, 256, 256, 0.2);
+    z-index: 1;
   }
 }
+
 
 .imageHover {
   composes: imageWrapper;

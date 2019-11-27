@@ -1,6 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styles from './styles.module.scss';
+import transitionsBio from './transitionsBio.module.scss';
+import transitionsImage from './transitionsImage.module.scss';
 
 const ArtistInfo = (props) => {
   const { slug } = useParams();
@@ -10,8 +13,26 @@ const ArtistInfo = (props) => {
     
     return (
       <div className={styles.info}>
-        <Bio bio={artist.bio}/>
-        <Image image={artist.img}/>
+        <TransitionGroup component={null}>
+          <CSSTransition
+            appear={true}
+            key={artist.name}
+            timeout={500}
+            classNames={transitionsBio}
+          >
+            <Bio bio={artist.bio}/>
+          </CSSTransition>
+        </TransitionGroup>
+        <TransitionGroup component={null}>
+          <CSSTransition
+            appear={true}
+            key={artist.name}
+            timeout={500}
+            classNames={transitionsImage}
+          >
+            <Image image={artist.img}/>
+          </CSSTransition>
+        </TransitionGroup>
         {props.isDesktop &&
           <div className={styles.imageHover}>
             <Image image={artist.img} name={artist.name}/>

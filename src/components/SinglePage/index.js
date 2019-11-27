@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import styles from './styles.module.scss';
+// import styles from './styles.module.scss';
 
 const SinglePage = () => {
   const [pageObject, setPageObject] = useState();
