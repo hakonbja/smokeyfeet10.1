@@ -16,10 +16,10 @@ const Artists = (props) => {
 
   return (
     <div className={styles.artists}>
-      {ArtistsMenu}
       <Redirect to="/artists/alice-felipe" />
+      {ArtistsMenu}
       <Route path="/artists/:slug">
-        <ArtistInfo artists={artists.info}/>
+        <ArtistInfo artists={artists.info} isDesktop={props.isDesktop}/>
       </Route>
     </div>
   );

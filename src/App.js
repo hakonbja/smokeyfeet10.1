@@ -25,6 +25,10 @@ class App extends React.Component {
     window.addEventListener("resize", this.onResize);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.onResize);
+  }
+
   onResize()  {
     this.setState( (prevState) => {
       let newIsDesktop = (window.innerWidth <= this.mobileSize) ? false : true;

@@ -2,47 +2,42 @@ import React, {useEffect, useState} from 'react';
 // import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/img/white_logo.svg';
+import { CSSTransition } from 'react-transition-group';
 import styles from './styles.module.scss';
+import transitions from './transitions.module.scss';
 import { ReactComponent as TenYears } from '../../assets/img/10_year_anniversary.svg';
 
-class Header extends React.Component {
-  constructor(props) {
-      super(props);
+const Header = (props) => {
+  const [menuIsOpen, toggleMenu] = useState(false);
 
-      this.state = {
-          menuIsOpen: false,
-      }
-
-  }
-
-  render() {
-    return (
-      <header
-        className={styles.header}
-        style={{top: this.props.headerTop}}
+  return (
+    <header
+      className={styles.header}
+    >
+      <div
+        className={styles.left}
+        onClick={() => toggleMenu(false)}
       >
-        <div className={styles.left} onClick={this.props.handleMenuLinkClick}>
-          <Link to="/">
-            <Logo className={styles.logo}/>
-            <div className={styles.text}>
-            <h1 className={styles.heading}>Smokey Feet</h1>
-            </div>
-          </Link>
-        </div>
-        <div
-          className={styles.tenYearsWrapper}
-        >
-          <Link to="/">
-          <TenYears
-          className={styles.tenYears}
-          onClick={this.props.handleMenuLinkClick}
-          />
-          </Link>
-        </div>
-        <Navbar menuIsOpen={this.state.menuIsOpen}/>
-      </header>
-    )
-  }
+        <Link to="/">
+          <Logo className={styles.logo}/>
+          <div className={styles.text}>
+          <h1 className={styles.heading}>Smokey Feet</h1>
+          </div>
+        </Link>
+      </div>
+      <div
+        className={styles.tenYearsWrapper}
+        onClick={() => toggleMenu(false)}
+      >
+        <Link to="/">
+        <TenYears
+        className={styles.tenYears}
+        />
+        </Link>
+      </div>
+      <Navbar menuIsOpen={menuIsOpen} toggleMenu={toggleMenu}/>
+    </header>
+  );
 }
 
 const Navbar = (props) => {
@@ -54,16 +49,21 @@ const Navbar = (props) => {
 
   return (
     <nav className={styles.navbar}>
-      <ul className={styles.linksList}>
-        <Links
-          menuItems={menuItems}
-          // onClick={this.props.handleMenuLinkClick}
-        />
-      </ul>
-
+      <CSSTransition
+        in={props.menuIsOpen}
+        timeout={500}
+        classNames={transitions}
+      >
+        <ul className={styles.linksList}>
+          <Links
+            menuItems={menuItems}
+            toggleMenu={props.toggleMenu}
+          />
+        </ul>
+      </CSSTransition>
       <div className={(props.menuIsOpen) ? styles.hamburgerMenuWrapperOpen : styles.hamburgerMenuWrapper}>
         <div className={styles.hamburgerMenu}
-        // onClick={props.handleMenuClick}
+        onClick={() => props.toggleMenu(!props.menuIsOpen)}
         >
           <li></li>
           <li></li>
@@ -76,13 +76,13 @@ const Navbar = (props) => {
 }
 
 const Links = (props) => {
-  const {menuItems, onClick} = props;
+  const {menuItems, toggleMenu} = props;
   const links = menuItems.map((menuItem, i) => {
     if (menuItem.hasOwnProperty('url')) {
       return (
         <NavLink
         to={menuItem.url}
-        onClick={onClick}
+        onClick={() => toggleMenu(false)}
         key={i}
         activeClassName={styles.active}
       >
@@ -93,7 +93,7 @@ const Links = (props) => {
     return (
       <NavLink
         to={`/page:${menuItem.page_id}`}
-        onClick={onClick}
+        onClick={() => toggleMenu(false)}
         key={i}
         activeClassName={styles.active}
       >

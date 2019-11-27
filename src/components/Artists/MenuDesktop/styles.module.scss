@@ -45,33 +45,3 @@
   color: $orange;
   font-family: 'Neptune', sans-serif;
 }
-
-
-.list {
-  padding: 10px 0;
-  display: flex;
-  flex-direction: column;
-
-  li {
-    display: inline-block;
-    box-sizing: border-box;
-    color: white;
-    padding: 2px 4px;
-    transition: all 300ms;
-    border: solid transparent 3px;
-  }
-
-  li:hover {
-    color: $orange;
-  }
-
-}
-
-
-.active > li {
-  border: solid $orange 3px;
-
-  &:hover {
-    color: white;
-  }
-}

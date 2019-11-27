@@ -1,1 +1,33 @@
-// @import '../../styles/variables.scss';
+@import '../../../styles/variables.scss';
+
+.menu {
+  background-color: $black-backgr;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    display: inline-block;
+    text-align: center;
+    font-size: 2.25rem;
+    border-bottom: solid white 4px;
+    align-self: center;
+  }
+}
+
+.group {
+  --h2-size: 1.25rem;
+  --border-thickness: 3px;
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    font-size: var(--h2-size);
+    @include addBottomPadding(var(--h2-size));
+    cursor: pointer;
+    border: solid transparent var(--border-thickness);
+    padding: 0 0.25rem;
+  }
+  .active {
+    border: solid $orange var(--border-thickness);
+  }
+}

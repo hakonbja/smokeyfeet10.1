@@ -12,9 +12,11 @@ const ArtistInfo = (props) => {
       <div className={styles.info}>
         <Bio bio={artist.bio}/>
         <Image image={artist.img}/>
-        <div className={styles.imageHover}>
-          <Image image={artist.img} name={artist.name}/>
-        </div>
+        {props.isDesktop &&
+          <div className={styles.imageHover}>
+            <Image image={artist.img} name={artist.name}/>
+          </div>
+        }
       </div>
     )
   }
