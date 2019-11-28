@@ -1,0 +1,105 @@
+/* Page transitions */
+
+.home-enter,
+.home-appear {
+  .ribbonWrapper {
+    --skew: 0deg;
+    width: 1000px;
+    transform: translateX(-200%) skewX(var(--skew));
+  }
+
+  .ribbonContent {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .dateWrapper {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.home-enter-active,
+.home-appear-active {
+  .ribbonWrapper {
+    --skew: 15deg;
+    transform: translateX(0) skewX(var(--skew));
+    width: 375px;
+    transition: transform 500ms, width 500ms 500ms;
+  }
+  
+  .ribbonContent {
+    visibility: visible;
+    opacity: 1;
+    transition: all 500ms 1000ms;
+  }
+
+  .dateWrapper {
+    visibility: visible;
+    opacity: 1;
+    transition: all 2000ms;
+  }
+}
+
+.home-enter-active {
+  .ribbonWrapper {
+    transition: transform 500ms 1000ms, width 500ms 1500ms;
+  }
+  
+  .ribbonContent {
+    transition: all 500ms 2000ms;
+  }
+  
+  .dateWrapper {
+    visibility: visible;
+    opacity: 1;
+    transition: all 2000ms 1000ms;
+  }
+}
+
+.home-exit {
+  .ribbonWrapper {
+    --skew: 15deg;
+    transform: translateX(0) skewX(var(--skew));
+    width: 375px;
+  }
+  
+  .ribbonContent {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .dateWrapper {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.home-exit,
+.home-exit-active {
+  .ribbonWrapper {
+    --skew: 0deg;
+    width: 1000px;
+    transform: translateX(-200%) skewX(var(--skew));
+    transition: transform 500ms 500ms, width 500ms 200ms;
+  }
+  
+  .ribbonContent {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 200ms;
+  }
+
+  .dateWrapper {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 500ms;
+  }
+}
+
+.home-enter-done {
+  .ribbonWrapper {
+    // --skew: 0deg;
+  }
+}
+

@@ -9,6 +9,14 @@
   overflow-y: initial;
   flex-grow: 1;
 
+  @media screen and (min-width: 951px) {
+    position: absolute; // for page transitions
+    top: 80px;
+    bottom: 45px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
   h3 {
     line-height: 1.2;
   }
@@ -21,7 +29,10 @@
   min-width: min-content;
   height: 100%;
   position: relative;
-  left: 15%;
+  right: 20%;
+  justify-self: end;
+
+
   @media screen and (max-width: 1190px) {
     left: 0;
   }
