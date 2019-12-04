@@ -18,7 +18,7 @@ const Content = (props) => {
   const timeout = { enter: 4000, exit: 1000 };
 
   return (
-    <TransitionGroup className={styles.contentWrapper}>
+    <TransitionGroup component={null}>
       <CSSTransition
         key={location.key}
         timeout={timeout}
@@ -27,20 +27,18 @@ const Content = (props) => {
         // unmountOnExit={true}
         classNames={currentClass}
       >
-        <div className={styles.routeSection}>
-          <Switch location={location}>
-            <Route path="/" exact
-              render={(props) => 
-                <Home {...props} isDesktop={isDesktop}/>
-              }/>
-            <Route path="/artists"
-              render={(props) =>
-                <Artists {...props} isDesktop={isDesktop}/>
-              }/>
-            <Route path="/register" exact component={Register} />
-            <Route path="/:pageName" component={SinglePage} />
-          </Switch>
-        </div>
+        <Switch location={location}>
+          <Route path="/" exact
+            render={(props) => 
+              <Home {...props} isDesktop={isDesktop}/>
+            }/>
+          <Route path="/artists"
+            render={(props) =>
+              <Artists {...props} isDesktop={isDesktop}/>
+            }/>
+          <Route path="/register" exact component={Register} />
+          <Route path="/:pageName" component={SinglePage} />
+        </Switch>
       </CSSTransition>
     </TransitionGroup>
   );

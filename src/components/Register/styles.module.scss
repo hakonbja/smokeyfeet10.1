@@ -7,9 +7,9 @@
   background-color: $black-backgr;
 
   @media screen and (max-width: 950px) {
-    position: absolute; // for page transitions
-    top: 80px;
-    bottom: 45px;
+    // position: absolute; // for page transitions
+    // top: 80px;
+    // bottom: 45px;
   }
 
   h1 {

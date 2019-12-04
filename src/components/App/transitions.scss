@@ -1,4 +1,9 @@
 /* Page transitions */
+:root {
+  --delay: 900ms;
+}
+
+/* Home page */
 
 .home-enter,
 .home-appear {
@@ -21,40 +26,29 @@
 
 .home-enter-active,
 .home-appear-active {
+  --delay: 0ms;
   .ribbonWrapper {
     --skew: 15deg;
     transform: translateX(0) skewX(var(--skew));
     width: 375px;
-    transition: transform 500ms, width 500ms 500ms;
+    transition: transform 300ms var(--delay) ease-out, width 300ms calc(300ms + var(--delay)) ease-out;
   }
   
   .ribbonContent {
     visibility: visible;
     opacity: 1;
-    transition: all 500ms 1000ms;
+    transition: all 300ms calc(600ms + var(--delay)) ease-in;
   }
 
   .dateWrapper {
     visibility: visible;
     opacity: 1;
-    transition: all 2000ms;
+    transition: all 900ms var(--delay) ease-in-out;
   }
 }
 
 .home-enter-active {
-  .ribbonWrapper {
-    transition: transform 500ms 1000ms, width 500ms 1500ms;
-  }
-  
-  .ribbonContent {
-    transition: all 500ms 2000ms;
-  }
-  
-  .dateWrapper {
-    visibility: visible;
-    opacity: 1;
-    transition: all 2000ms 1000ms;
-  }
+  --delay: 900ms;
 }
 
 .home-exit {
@@ -103,3 +97,31 @@
   }
 }
 
+/* Register page */
+
+.register-enter,
+.register-appear {
+ 
+}
+
+.register-enter-active,
+.register-appear-active {
+  
+}
+
+.register-enter-active {
+
+}
+
+.register-exit {
+
+}
+
+.register-exit,
+.register-exit-active {
+  
+}
+
+.register-enter-done {
+ 
+}

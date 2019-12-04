@@ -7,6 +7,7 @@
   padding: 0;
   text-align: center;
   overflow-y: initial;
+  flex-grow: 1;
 
   @media screen and (min-width: 951px) {
     // position: absolute; // for page transitions
