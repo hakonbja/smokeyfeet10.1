@@ -7,6 +7,12 @@
   display: flex;
   padding: 0 4.5rem;
 
+  @media screen and (min-width: 951px) {
+    // position: absolute;
+    // top: 80px;
+    // bottom: 45px;
+  }
+
   @media screen and (max-width: 950px) {
     max-height: none;
     flex-direction: column;

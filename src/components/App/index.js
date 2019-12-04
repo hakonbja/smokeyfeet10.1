@@ -1,15 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import '../../styles/style.scss';
-import { Switch, Route, withRouter } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styles from './styles.module.scss';
 import './transitions.scss';
 import Header from '../Header/index.js';
+import Content from '../Content/index';
 import Footer from '../Footer/index.js';
-import Home from '../Home/index.js';
-import Artists from '../Artists/index.js';
-import Register from '../Register/index.js';
-import SinglePage from '../SinglePage/index';
 
 class App extends React.Component {
   constructor(props) {
@@ -44,42 +40,17 @@ class App extends React.Component {
   }
 
   render() {
-    const { location } = this.props;
-    // const { key } = location;    
-    const currentLocation = location.pathname.split("/")[1];
-    const currentClass = (currentLocation === "") ? "home" : currentLocation;
     
-    const timeout = { enter: 4000, exit: 1000 };
     
     return (
-      <main>
-        <Background />
-        <Header />
-        <TransitionGroup component={null}>
-          <CSSTransition
-            key={location.key}
-            timeout={timeout}
-            appear={true}
-            // mountOnEnter={false}
-            // unmountOnExit={true}
-            classNames={currentClass}
-          >
-            <Switch location={location}>
-              <Route path="/" exact
-                render={(props) => 
-                  <Home {...props} isDesktop={this.state.isDesktop}/>
-                }/>
-              <Route path="/artists"
-                render={(props) =>
-                  <Artists {...props} isDesktop={this.state.isDesktop}/>
-                }/>
-              <Route path="/register" exact component={Register} />
-              <Route path="/:pageName" component={SinglePage} />
-            </Switch>
-          </CSSTransition>
-        </TransitionGroup>
-        <Footer />
-      </main>
+      <Router>
+        <main>
+          <Background />
+          <Header />
+          <Content isDesktop={this.state.isDesktop} />
+          <Footer />
+        </main>
+      </Router>
     );
   }
 }
@@ -124,4 +95,4 @@ class Background extends React.Component {
   }
 }
 
-export default withRouter(App);
+export default App;

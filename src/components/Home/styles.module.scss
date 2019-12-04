@@ -7,14 +7,13 @@
   padding: 0;
   text-align: center;
   overflow-y: initial;
-  flex-grow: 1;
 
   @media screen and (min-width: 951px) {
-    position: absolute; // for page transitions
-    top: 80px;
-    bottom: 45px;
-    right: 50%;
-    transform: translateX(50%);
+    // position: absolute; // for page transitions
+    // top: 80px;
+    // bottom: 45px;
+    // right: 50%;
+    // transform: translateX(50%);
   }
 
   h3 {
@@ -51,7 +50,8 @@
 }
 
 .ribbonContent {
-  height: 525px;
+  height: 65%;
+  max-height: 480px;
   padding: 0 1.25em;
   display: flex;
   flex-direction: column;
