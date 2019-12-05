@@ -15,7 +15,7 @@ const Content = (props) => {
   const currentLocation = location.pathname.split("/")[1];
   const currentClass = (currentLocation === "") ? "home" : currentLocation;
   
-  const timeout = { enter: 4000, exit: 4000 };
+  const timeout = { appear: 1200, enter: 2250, exit: 1050 };
 
   return (
     <TransitionGroup className={styles.gridContainer}>

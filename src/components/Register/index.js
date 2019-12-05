@@ -5,7 +5,7 @@ import { ReactComponent as Checkmark } from '../../assets/img/checkmark.svg';
 const Register = () => {
   return (
     <div className={styles.register}>
-      <div className={styles.heading}><h1>Register</h1></div>
+      <div className={`${styles.heading} blackBackground hideContent`}><h1>Register</h1></div>
       <RowHeaders />
       <CompareGrid />
       <RegButton />
@@ -13,17 +13,10 @@ const Register = () => {
   );
 }
 
-const RegButton = () => {
-  return (
-    <div className={styles.regButton}>
-      <h3>Registration opens on the 11th of January at 20:00</h3>
-    </div>
-  );
-}
 
 const RowHeaders = () => {
   return (
-    <div className={styles.rowHeaders}>
+    <div className={`${styles.rowHeaders} hideContent`}>
       <div>
         <h2>All Parties</h2>
       </div>
@@ -107,8 +100,16 @@ const CompareGrid = () => {
   });
 
   return (
-    <div className={styles.compareGrid}>
+    <div className={`${styles.compareGrid} blackBackground hideContent`}>
       {renderedPasses}
+    </div>
+  );
+}
+
+const RegButton = () => {
+  return (
+    <div className={`${styles.regButton} blackBackground hideContent`}>
+      <h3>Registration opens on the 11th of January at 20:00</h3>
     </div>
   );
 }

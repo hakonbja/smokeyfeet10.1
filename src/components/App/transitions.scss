@@ -1,6 +1,6 @@
 /* Page transitions */
 :root {
-  --delay: 900ms;
+  --delay: 0ms;
 }
 
 /* Home page */
@@ -8,9 +8,9 @@
 .home-enter,
 .home-appear {
   .ribbonWrapper {
-    --skew: 0deg;
+    // --skew: 0deg;
     width: 1000px;
-    transform: translateX(-200%) skewX(var(--skew));
+    transform: translateX(-200%) skewX(0deg);
   }
 
   .ribbonContent {
@@ -26,18 +26,17 @@
 
 .home-enter-active,
 .home-appear-active {
-  --delay: 0ms;
   .ribbonWrapper {
-    --skew: 15deg;
-    transform: translateX(0) skewX(var(--skew));
+    // --skew: 15deg;
+    transform: translateX(0) skewX(15deg);
     width: 375px;
-    transition: transform 300ms var(--delay) ease-out, width 300ms calc(300ms + var(--delay)) ease-out;
+    transition: transform 400ms var(--delay) ease-out, width 400ms calc(400ms + var(--delay)) ease-out;
   }
   
   .ribbonContent {
     visibility: visible;
     opacity: 1;
-    transition: all 300ms calc(600ms + var(--delay)) ease-in;
+    transition: all 400ms calc(800ms + var(--delay)) ease-in;
   }
 
   .dateWrapper {
@@ -48,19 +47,24 @@
 }
 
 .home-enter-active {
-  --delay: 900ms;
+  --delay: 1050ms;
 }
 
 .home-exit {
   .ribbonWrapper {
-    --skew: 15deg;
-    transform: translateX(0) skewX(var(--skew));
+    // --skew: 15deg;
+    transform: translateX(0) skewX(15deg);
     width: 375px;
   }
   
   .ribbonContent {
     visibility: visible;
     opacity: 1;
+
+    h3 {
+    // --skew: -15deg;
+    transform: skewX(-15deg);
+    }
   }
 
   .dateWrapper {
@@ -72,22 +76,22 @@
 .home-exit,
 .home-exit-active {
   .ribbonWrapper {
-    --skew: 0deg;
+    // --skew: 0deg;
     width: 1000px;
-    transform: translateX(-200%) skewX(var(--skew));
-    transition: transform 500ms 500ms, width 500ms 200ms;
+    transform: translateX(-200%) skewX(0deg);
+    transition: transform 350ms 700ms, width 350ms 350ms;
   }
   
   .ribbonContent {
     visibility: hidden;
     opacity: 0;
-    transition: all 200ms;
+    transition: all 350ms;
   }
 
   .dateWrapper {
     visibility: hidden;
     opacity: 0;
-    transition: all 500ms;
+    transition: all 350ms;
   }
 }
 
@@ -97,31 +101,73 @@
   }
 }
 
+
 /* Register page */
 
 .register-enter,
 .register-appear {
- 
+  .blackBackground {
+    justify-self: end;
+    width: 200%;
+    transform: translateX(-200%);
+  }
+  
+  .hideContent > * {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
 .register-enter-active,
 .register-appear-active {
+  .blackBackground {
+    width: 100%;
+    transform: translateX(0);
+    transition: transform 400ms var(--delay), width 400ms calc(400ms + var(--delay));
+  }
   
+  .hideContent > * {
+    visibility: visible;
+    opacity: 1;
+    transition: all 400ms calc(800ms + var(--delay)) ease-in;
+  }
 }
 
 .register-enter-active {
-
+  --delay: 1050ms;
 }
 
 .register-exit {
-
+  .blackBackground {
+    width: 100%;
+    transform: translateX(0);
+  }
+  
+  .hideContent > * {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .register-exit,
 .register-exit-active {
+  .blackBackground {
+    justify-self: end;
+    width: 200%;
+    transform: translateX(-200%);
+    transition: width 300ms 300ms ease-in-out, transform 600ms 600ms ease-in-out;
+  }
   
+  .hideContent > *{
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+  }
 }
 
 .register-enter-done {
- 
+  .blackBackground {
+    width: 100%;
+    transform: translateX(0);
+  }
 }
