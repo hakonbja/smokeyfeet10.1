@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import {
+  Route,
+  // Redirect
+} from 'react-router-dom';
 import styles from './styles.module.scss';
 import MenuDesktop from './MenuDesktop/index';
 import MenuMobile from './MenuMobile/index';

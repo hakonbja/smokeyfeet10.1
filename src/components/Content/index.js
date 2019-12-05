@@ -15,7 +15,7 @@ const Content = (props) => {
   const currentLocation = location.pathname.split("/")[1];
   const currentClass = (currentLocation === "") ? "home" : currentLocation;
   
-  const timeout = { enter: 4000, exit: 1000 };
+  const timeout = { enter: 0, exit: 0 };
 
   return (
     <TransitionGroup component={null}>

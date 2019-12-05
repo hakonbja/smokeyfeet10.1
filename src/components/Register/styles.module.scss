@@ -2,44 +2,101 @@
 
 .register {
   flex-grow: 1;
-  margin: 0 10rem;
-  padding: 2rem;
-  background-color: $black-backgr;
+  margin: 0 15%;
 
-  @media screen and (max-width: 950px) {
-    // position: absolute; // for page transitions
-    // top: 80px;
-    // bottom: 45px;
-  }
-
-  h1 {
-    text-align: right;
-  }
-}
-
-.compareTable {
   font-family: 'Neptune', sans-serif;
   text-transform: uppercase;
   color: white;
-  font-size: 1.75rem;
-  display: flex;
-  justify-content: center;
+  // font-size: 0.75rem;
 
-  col {
-    text-align: right;
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) repeat(4, minmax(min-content, 240px));
+  grid-template-rows: min-content repeat(6, 90px) auto;
+  grid-template-areas:
+    "... heading heading heading heading"
+    "... compareGrid compareGrid compareGrid compareGrid"
+    "firstCol compareGrid compareGrid compareGrid compareGrid"
+    "firstCol compareGrid compareGrid compareGrid compareGrid"
+    "firstCol compareGrid compareGrid compareGrid compareGrid"
+    "firstCol compareGrid compareGrid compareGrid compareGrid"
+    "firstCol compareGrid compareGrid compareGrid compareGrid"
+    "... regButton regButton regButton regButton";
+
+  h2 {
+    font-size: 2.25rem;
+  }
+}
+
+.heading {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  grid-area: heading;
+}
+
+.rowHeaders {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  grid-area: firstCol;
+  text-align: right;
+  
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1rem;
   }
 
-  tr {
-    height: 45px;
+  div:not(:last-of-type) {
+    border-bottom: solid 3px white;
+  }
+}
+
+.compareGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-area: compareGrid;
+  align-self: stretch;
+  text-align: center;
+
+  > div:nth-child(even) {
+    background-color: $white15;
   }
 
-  th, td {
-    vertical-align: middle;
-    padding: 1rem;
-    text-align: center;
+  h2 {
+    padding: 0 0.5rem;
+  }
+}
+
+.passInfo {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr);
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  th:first-child {
-    text-align: right;
+  div:not(:last-of-type):not(:first-of-type) {
+    border-bottom: solid 3px white;
   }
+}
+
+.regButton {
+  grid-area: regButton;
+  text-align: center;
+  padding-top: 3rem;
+
+  h3 {
+    margin-top: var(--margin);
+  }
+}
+
+.heading,
+.compareGrid,
+.regButton {
+  background-color: $black-backgr;
 }
