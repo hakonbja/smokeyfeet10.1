@@ -6,7 +6,7 @@
 
 .enter {
   max-height: 80px;
-  background-color: $black-light;
+  background-color: $black-backgr;
 
   a {
     visibility: hidden;
@@ -49,7 +49,7 @@
  
 .exit.exitActive {
   max-height: 80px;
-  background-color: $black-light;
+  background-color: $black-backgr;
   transition: all 500ms;
   
   a {

@@ -10,22 +10,35 @@ import SinglePage from '../SinglePage/index';
 const Content = (props) => {  
   const { location } = props;
   let isDesktop = props.isDesktop; // for some reason using props.isDesktop in the Route returns undefined
-  
-  // const { key } = location;    
-  const currentLocation = location.pathname.split("/")[1];
-  const currentClass = (currentLocation === "") ? "home" : currentLocation;
-  
-  const timeout = { appear: 1200, enter: 2250, exit: 1050 };
+   
+  const timeout = isDesktop ? { appear: 1200, enter: 2250, exit: 1050 } : 300;
 
+  const getClass = ((isDesktop, location) => {
+    if (!isDesktop) {
+      return "mobile";
+    }
+    const includedPages = ["home", "register", "artists"];
+    let currentLocation = location.pathname.split("/")[1];
+    if (currentLocation === "") currentLocation = "home";
+
+    if (includedPages.indexOf(currentLocation) < 0) {
+      return "singlePage";
+    }
+    
+    return currentLocation;
+  })(isDesktop, location);
+
+  const key = location.pathname.split("/")[1];
+  
   return (
-    <TransitionGroup className={styles.gridContainer}>
+    <TransitionGroup
+      className={styles.gridContainer}
+    >
       <CSSTransition
-        key={location.key}
+        key={key}
         timeout={timeout}
+        classNames={getClass}
         appear={true}
-        // mountOnEnter={false}
-        // unmountOnExit={true}
-        classNames={currentClass}
       >
         <Switch location={location}>
           <Route path="/" exact

@@ -9,7 +9,7 @@ const ArtistsMenu = (props) => {
   const [isOtherOpen, toggleOther] = useState(true);
   
   return (
-    <div className={styles.menu}>
+    <div className={`${styles.menu} blackBackground hideContent`}>
       <h1>Artists</h1>
       {props.artists &&
         <div className={styles.groups}>

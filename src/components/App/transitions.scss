@@ -171,3 +171,45 @@
     transform: translateX(0);
   }
 }
+
+
+/* Artists page */
+
+.artists-enter,
+.artists-appear {
+
+  .blackBackground {
+
+  }
+}
+
+.artists-enter-active,
+.artists-appear-active {
+
+}
+
+
+/* All pages on mobile */
+
+.mobile-enter,
+.mobile-appear {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mobile-enter-active,
+.mobile-appear-active {
+  opacity: 1;
+  visibility: visible;
+  transition: all 300ms;
+}
+
+.mobile-exit {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-exit-active {
+  opacity: 0;
+  visibility: hidden;
+}
