@@ -14,6 +14,10 @@
   transition: all 500ms ease-out;
 }
 
+.appear.appearActive {
+  transition: all 500ms ease-out 500ms;
+ }
+
   /* slideUp exit */
 .exit {
   opacity: 1;

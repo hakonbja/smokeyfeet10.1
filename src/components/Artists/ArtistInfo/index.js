@@ -10,6 +10,7 @@ const ArtistInfo = (props) => {
 
   if (props.artists && props.artists.length > 0) {
     const artist = props.artists.find(artist => artist.slug === slug);
+    const timeout = {appear: 1000, enter: 500, exit: 500};
     
     return (
       <div className={styles.info}>
@@ -17,7 +18,7 @@ const ArtistInfo = (props) => {
           <CSSTransition
             appear={true}
             key={artist.name}
-            timeout={500}
+            timeout={timeout}
             classNames={transitionsBio}
           >
             <Bio bio={artist.bio}/>
@@ -27,7 +28,7 @@ const ArtistInfo = (props) => {
           <CSSTransition
             appear={true}
             key={artist.name}
-            timeout={500}
+            timeout={timeout}
             classNames={transitionsImage}
           >
             <Image image={artist.img}/>
@@ -47,7 +48,7 @@ const ArtistInfo = (props) => {
 const Bio = (props) => {
   if (props.bio) {
     return (
-      <div className={styles.bioWrapper}>
+      <div className={`${styles.bioWrapper} bioWrapper`}>
         <div
           className={styles.bio}
           dangerouslySetInnerHTML={{__html: props.bio}}
@@ -62,7 +63,7 @@ const Bio = (props) => {
 const Image = (props) => {
   if (props.image) {
     return (
-        <div className={styles.imageWrapper}>
+        <div className={`${styles.imageWrapper} imageWrapper`}>
           <div className={styles.image}>
             <img src={props.image} alt={"Photo of " + props.name}/>
           </div>
