@@ -4,7 +4,7 @@
   display: grid;
   position: relative;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(7, auto);
   max-height: inherit;
   overflow-x: hidden;
   margin: 20px 0 20px 20px;

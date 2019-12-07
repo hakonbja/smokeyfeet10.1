@@ -2,6 +2,11 @@
 :root {
   --delay: 0ms;
 }
+.home-enter-active,
+.register-enter-active,
+.artists-enter-active {
+  --delay: 1200ms;
+}
 
 /* Home page */
 
@@ -9,8 +14,8 @@
 .home-appear {
   .ribbonWrapper {
     // --skew: 0deg;
-    width: 1000px;
-    transform: translateX(-200%) skewX(0deg);
+    width: 550px;
+    transform: translateX(-100%) skewX(0deg);
   }
 
   .ribbonContent {
@@ -44,10 +49,6 @@
     opacity: 1;
     transition: all 900ms var(--delay) ease-in-out;
   }
-}
-
-.home-enter-active {
-  --delay: 1050ms;
 }
 
 .home-exit {
@@ -95,12 +96,6 @@
   }
 }
 
-.home-enter-done {
-  .ribbonWrapper {
-    // --skew: 0deg;
-  }
-}
-
 
 /* Register page */
 
@@ -131,10 +126,6 @@
     opacity: 1;
     transition: all 400ms calc(800ms + var(--delay)) ease-in;
   }
-}
-
-.register-enter-active {
-  --delay: 1050ms;
 }
 
 .register-exit {
@@ -179,14 +170,64 @@
 .artists-appear {
 
   .blackBackground {
+    justify-self: end;
+    width: 400px;
+    transform: translateX(-100%);
+  }
 
+  .hideContent * {
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
 }
 
 .artists-enter-active,
 .artists-appear-active {
 
+  .blackBackground {
+    justify-self: end;
+    width: 325px;
+    transform: translateX(0);
+    transition: transform 400ms var(--delay) ease-out, width 400ms calc(400ms + var(--delay)) ease-out !important;
+  }
+
+  .hideContent * {
+    opacity: 1;
+    visibility: visible;
+    transition: all 400ms calc(800ms + var(--delay)) ease-in;
+  }
 }
+
+.artists-exit {
+
+  .blackBackground {
+    justify-self: end;
+    width: 325px;
+    transform: translateX(0);
+  }
+
+  .hideContent * {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.artists-exit-active {
+
+  .blackBackground {
+    justify-self: end;
+    width: 400px;
+    transform: translateX(-100%);
+    transition: width 400ms 400ms, transform 400ms 800ms;
+  }
+
+  .hideContent * {
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms;
+  }
+}
+
 
 
 /* All pages on mobile */
