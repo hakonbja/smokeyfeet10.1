@@ -12,6 +12,9 @@ $black-medium: rgba(0, 0, 0, 0.65);
 $black-dark: rgba(0, 0, 0, 0.75);
 $black-darkest: rgba(0, 0, 0, 0.9);
 
+$breakpoint-max: 950px;
+$breakpoint-min: 951px;
+
 /* Mixin */
 
 @mixin addBottomPadding($font-size) {

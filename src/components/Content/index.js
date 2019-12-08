@@ -49,7 +49,10 @@ const Content = (props) => {
             render={(props) =>
               <Artists {...props} isDesktop={isDesktop}/>
             }/>
-          <Route path="/register" exact component={Register} />
+          <Route path="/register" exact 
+            render={(props) =>
+            <Register {...props} isDesktop={isDesktop}/>
+          }/>
           <Route path="/:pageName" component={SinglePage} />
         </Switch>
       </CSSTransition>
