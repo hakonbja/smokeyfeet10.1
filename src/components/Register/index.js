@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import styles from './styles.module.scss';
 import { ReactComponent as Checkmark } from '../../assets/img/checkmark.svg';
 
-const Register = (props) => {
+const Register = (props) => {  
 
-  const passesInfo = [
+  const allPasses = [
     {
-      passName: "Full Pass",
+      name: "Full Pass",
       allParties: true,
       conceptClasses: true,
       soloClasses: true,
@@ -14,7 +14,7 @@ const Register = (props) => {
       price: "€230,-"
     },
     {
-      passName: "Lindy Pass",
+      name: "Lindy Pass",
       allParties: true,
       conceptClasses: true,
       soloClasses: false,
@@ -22,7 +22,7 @@ const Register = (props) => {
       price: "€210,-"
     },
     {
-      passName: "Solo Pass",
+      name: "Solo Pass",
       allParties: true,
       conceptClasses: true,
       soloClasses: true,
@@ -30,7 +30,7 @@ const Register = (props) => {
       price: "€145,-"
     },
     {
-      passName: "Party Pass",
+      name: "Party Pass",
       allParties: true,
       conceptClasses: true,
       soloClasses: false,
@@ -40,9 +40,9 @@ const Register = (props) => {
   ];
 
   if (props.isDesktop) {
-    return <RegisterDesktop passesInfo={passesInfo}/>
+    return <RegisterDesktop allPasses={allPasses}/>
   } else {
-    return <RegisterMobile passesInfo={passesInfo}/>
+    return <RegisterMobile allPasses={allPasses}/>
   }
 }
 
@@ -51,14 +51,14 @@ const RegisterDesktop = (props) => {
     <div className={styles.register}>
       <div className={`${styles.heading} blackBackground hideContent`}><h1>Register</h1></div>
       <RowHeaders />
-      <CompareDesktop passesInfo={props.passesInfo}/>
+      <CompareDesktop allPasses={props.allPasses}/>
       <RegButton />
     </div>
   );
 }
 
 const CompareDesktop = (props) => {
-  const renderedPasses = props.passesInfo.map((pass, i) => {
+  const renderedPasses = props.allPasses.map((pass, i) => {
     return(
       <PassInfo
         key={i}
@@ -76,39 +76,41 @@ const CompareDesktop = (props) => {
 }
 
 const RegisterMobile = (props) => {
-  const [selectedPass, setSelectedPass] = useState("Full Pass");  
-  let selectedPassInfo = props.passesInfo.find(pass => pass.passName === selectedPass);
-
+  const allPasses = props.allPasses;
+  const [selectedPass, setSelectedPass] = useState(allPasses[0]);
+    
   return (
     <div>
-      <HeaderMobile setSelectedPass={setSelectedPass}/>
+      <HeaderMobile selectedPass={selectedPass} setSelectedPass={setSelectedPass} allPasses={allPasses}/>
       <RowHeaders />
-      <CompareMobile selectedPassInfo={selectedPassInfo}/>
+      <CompareMobile selectedPass={selectedPass}/>
       <RegButton />
     </div>
   );
 }
 
 const CompareMobile = (props) => {
+  
   return (
     <PassInfo
       isDesktop={false}
-      pass={props.selectedPassInfo}
+      pass={props.selectedPass}
     />
   );
 }
 
 const HeaderMobile = (props) => {
-
   return (
     <div>
       <h1>Register</h1>
       <div>
         <ul>
-          <li onClick={() => props.setSelectedPass("Full Pass")}>Full Pass</li>
-          <li onClick={() => props.setSelectedPass("Lindy Pass")}>Lindy Pass</li>
-          <li onClick={() => props.setSelectedPass("Solo Pass")}>Solo Pass</li>
-          <li onClick={() => props.setSelectedPass("Party Pass")}>Party Pass</li>
+          {props.allPasses.map((pass, i) => {
+            const className = (props.selectedPass.name === pass.name) ? 'active': '';
+            return (
+              <li className={className} key={i} onClick={() => props.setSelectedPass(pass)}>{pass.name}</li>
+            );
+          })}
         </ul>
       </div>
     </div>
@@ -137,17 +139,21 @@ const RowHeaders = () => {
   );
 }
 
-const PassInfo = (props) => { 
-  return (
-    <div className={styles.passInfo}>
-      {props.isDesktop && <div><h2>{props.pass.passName}</h2></div>}
-      <div>{props.pass.allParties && <Checkmark/>}</div>
-      <div>{props.pass.conceptClasses && <Checkmark/>}</div>
-      <div>{props.pass.soloClasses && <Checkmark/>}</div>
-      <div>{props.pass.lindyClasses && <Checkmark/>}</div>
-      <div><h2>{props.pass.price}</h2></div>
-    </div>
-  );
+const PassInfo = (props) => {
+  if (props.pass) {
+    return (
+      <div className={styles.passInfo}>
+        {props.isDesktop && <div><h2>{props.pass.name}</h2></div>}
+        <div>{props.pass.allParties && <Checkmark/>}</div>
+        <div>{props.pass.conceptClasses && <Checkmark/>}</div>
+        <div>{props.pass.soloClasses && <Checkmark/>}</div>
+        <div>{props.pass.lindyClasses && <Checkmark/>}</div>
+        <div><h2>{props.pass.price}</h2></div>
+      </div>
+    );
+  } else {
+    return null;
+  }
 }
 
 

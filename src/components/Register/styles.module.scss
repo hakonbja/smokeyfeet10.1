@@ -9,20 +9,19 @@
   color: white;
   // font-size: 0.75rem;
 
-  @media screen and (min-width: $breakpoint-min) {
-    display: grid;
-    grid-template-columns: minmax(min-content, max-content) repeat(4, minmax(min-content, 240px));
-    grid-template-rows: min-content repeat(6, 90px) auto;
-    grid-template-areas:
-    "... heading heading heading heading"
-    "... compareGrid compareGrid compareGrid compareGrid"
-    "firstCol compareGrid compareGrid compareGrid compareGrid"
-    "firstCol compareGrid compareGrid compareGrid compareGrid"
-    "firstCol compareGrid compareGrid compareGrid compareGrid"
-    "firstCol compareGrid compareGrid compareGrid compareGrid"
-    "firstCol compareGrid compareGrid compareGrid compareGrid"
-    "... regButton regButton regButton regButton";
-  }
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) repeat(4, minmax(min-content, 240px));
+  grid-template-rows: min-content repeat(6, 90px) auto;
+  grid-template-areas:
+  "... heading heading heading heading"
+  "... compareGrid compareGrid compareGrid compareGrid"
+  "firstCol compareGrid compareGrid compareGrid compareGrid"
+  "firstCol compareGrid compareGrid compareGrid compareGrid"
+  "firstCol compareGrid compareGrid compareGrid compareGrid"
+  "firstCol compareGrid compareGrid compareGrid compareGrid"
+  "firstCol compareGrid compareGrid compareGrid compareGrid"
+  "... regButton regButton regButton regButton";
+  
     
   h2 {
     font-size: 2.25rem;
