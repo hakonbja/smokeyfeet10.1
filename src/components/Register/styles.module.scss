@@ -6,24 +6,47 @@
 
 .regButton {
   grid-area: regButton;
+  // padding: 0 1rem;
+  
+  p {
+    text-transform: none;
+    color: white;
+  }
+
   @media screen and (min-width: $breakpoint-min) {
     text-align: center;
     padding-top: 3rem;
     background-color: $black-backgr;
 
-    h3 {
-      margin-top: var(--margin);
+    p {
+      font-size: 1.5rem;
     }
   }
 
   @media screen and (max-width: $breakpoint-max) {
     text-align: center;
-    
-    h3 {
+
+    h2 {
       font-size: 1.75rem;
       @include addBottomPadding(1.75rem);
     }
+    
+    p {
+      font-size: 1.25rem;
+    }
   }
+}
+
+.button {
+  margin-bottom: 1rem;
+
+  h2 {
+    box-sizing: border-box;
+    padding: 0.3rem 0.45rem;
+    display: inline-block;
+    border: solid 4px white;
+  }
+
 }
 
 
@@ -124,50 +147,107 @@
 .registerMobile {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, auto);
+  grid-template-rows: repeat(3, min-content);
   grid-template-areas:
   "header"
   "passInfo"
   "regButton";
+  justify-items: center;
   background-color: $black-backgr;
   margin: 1rem;
+  padding: 1rem;
+
+  > div {
+    max-width: 450px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 370px) {
+    padding: 1 0.5rem;
+  }
 }
 
 .headerMobile {
   text-align: center;
   grid-area: header;
+  margin-bottom: 1rem;
+
+  h1 {
+    display: inline-block;
+    font-size: 2.25rem;
+    @include addBottomPadding(2.25rem);
+    border-bottom: solid white 4px;
+    margin-bottom: 1rem;
+  }
 }
 
 .passSelect {
+  display: flex;
+  justify-content: center;
+
   ul {
     display: flex;
-    justify-content: center;
+    flex-grow: 1;
+    justify-content: space-between;
+    // max-width: 450px;
   }
 
   li {
-    flex: 0 1 min-content;
-    color: white;
-    margin: 0 1rem;
-    padding: 0.35rem 0.5rem;
+    color: $white50;
+    // margin: 0 1rem;
+    @include addBottomPadding(1.5rem);
+    padding: 0.35rem 0.4rem !important;
     cursor: pointer;
     font-family: 'Neptune', sans-serif;
     text-transform: uppercase;
-    @include addBottomPadding(1.5rem);
     border: 2px solid transparent;
+    box-sizing: border-box;
+    transition: all 200ms;
   }
+
+  @media screen and (max-width: 425px) {
+    li {
+      font-size: 1.25rem;
+    }
+  }
+  
+  @media screen and (max-width: 350px) {
+    li {
+      font-size: 1rem;
+    }
+  }
+
 }
 
 .activeLi {
   border: 2px solid $orange !important;
+  background-color: $white15;
+  color: white !important;
 }
 
 .compareWrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
-  // padding: 0 3rem;
-  max-width: 430px;
-  margin: 0 auto;
+  padding: 0 2rem;
+  margin: 0 auto 1rem;
+  
+  h2 {
+    font-size: 1.75rem;
+    @include addBottomPadding(1.75rem);
+  }
+
+  @media screen and (max-width: 530px) {
+    // max-width: 350px;
+  }
+
+  @media screen and (max-width: 425px) {
+    // max-width: 300px;
+
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
 }
 
 .rowHeadersMobile,
@@ -176,22 +256,18 @@
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: 1fr;
   text-align: center;
-  // max-width: 200px;
 
   > div {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0.25rem 0;
   }
   
   > div:not(:last-of-type) {
     border-bottom: solid 3px white;
   }
 
-  h2 {
-    font-size: 1.75rem;
-    @include addBottomPadding(1.75rem);
-  }
 }
 
 .rowHeadersMobile {
@@ -199,12 +275,8 @@
 }
 
 .passInfoMobile {
-  
-  
-
-  // > div {
-  //   display: flex;
-  //   align-items: center;
-  // }
-
+  svg {
+    height: 30px;
+    width: auto;
+  }
 }

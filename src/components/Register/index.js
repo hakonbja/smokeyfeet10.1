@@ -101,14 +101,14 @@ const HeaderMobile = (props) => {
         <ul>
           {props.allPasses.map((pass, i) => {
             const isSelected = props.selectedPass.name === pass.name;
+            const passName = pass.name.split(' ').join('<br>');
             return (
               <li
                 className={isSelected ? styles.activeLi : ''}
                 key={i}
                 onClick={() => props.setSelectedPass(pass)}
-              >
-                {pass.name}
-              </li>
+                dangerouslySetInnerHTML={{__html: passName}}
+              />
             );
           })}
         </ul>
@@ -150,20 +150,16 @@ const RowHeaders = (props) => {
 }
 
 const PassInfo = (props) => {
-  if (props.pass) {
-    return (
-      <div className={props.isDesktop ? styles.passInfoDesktop : styles.passInfoMobile}>
-        {props.isDesktop && <div><h2>{props.pass.name}</h2></div>}
-        <div>{props.pass.allParties && <Checkmark/>}</div>
-        <div>{props.pass.conceptClasses && <Checkmark/>}</div>
-        <div>{props.pass.soloClasses && <Checkmark/>}</div>
-        <div>{props.pass.lindyClasses && <Checkmark/>}</div>
-        <div><h2>{props.pass.price}</h2></div>
-      </div>
-    );
-  } else {
-    return null;
-  }
+  return (
+    <div className={props.isDesktop ? styles.passInfoDesktop : styles.passInfoMobile}>
+      {props.isDesktop && <div><h2>{props.pass.name}</h2></div>}
+      <div>{props.pass.allParties && <Checkmark/>}</div>
+      <div>{props.pass.conceptClasses && <Checkmark/>}</div>
+      <div>{props.pass.soloClasses && <Checkmark/>}</div>
+      <div>{props.pass.lindyClasses && <Checkmark/>}</div>
+      <div><h2>{props.pass.price}</h2></div>
+    </div>
+  );
 }
 
 // const PassInfoMobile = (props) => {
@@ -201,7 +197,10 @@ const PassInfo = (props) => {
 const RegButton = () => {
   return (
     <div className={`${styles.regButton} blackBackground hideContent`}>
-      <h3>Registration opens on the 11th of January at 20:00</h3>
+      {/* <div className={styles.button}>
+        <h2>Register here</h2>
+      </div> */}
+      <p>Registration opens on the 11th of January at 20:00</p>
     </div>
   );
 }
