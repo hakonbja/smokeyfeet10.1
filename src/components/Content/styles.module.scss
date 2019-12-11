@@ -5,6 +5,7 @@
   flex-grow: 1;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  min-height: calc(100vh - 80px - 45px);
 
   > div {
     grid-column: 1;
