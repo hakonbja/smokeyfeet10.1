@@ -10,16 +10,24 @@ import ArtistInfo from './ArtistInfo/index';
 
 const Artists = (props) => {
   const [artists, setArtists] = useState({info: [], isFetching: false});
+  const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     fetchArtists(setArtists);
+    const redirectTimer = setTimeout(() => setRedirect(true), 1500);
+
+    return function cleanUp() {
+      clearTimeout(redirectTimer);
+    }
   }, []);
 
   const ArtistsMenu = props.isDesktop ? <MenuDesktop artists={artists.info}/> : <MenuMobile artists={artists.info}/>;
 
   return (
     <div className={styles.artists}>
+      {redirect &&
       <Redirect to="/artists/alice-felipe" />
+}
       {ArtistsMenu}
       <Route path="/artists/:slug">
         <ArtistInfo artists={artists.info} isDesktop={props.isDesktop}/>
