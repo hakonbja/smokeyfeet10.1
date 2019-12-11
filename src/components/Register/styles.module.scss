@@ -2,11 +2,8 @@
 
 /* Desktop and mobile styling */
 
-
-
 .regButton {
   grid-area: regButton;
-  // padding: 0 1rem;
   
   p {
     text-transform: none;
@@ -189,12 +186,10 @@
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
-    // max-width: 450px;
   }
 
   li {
     color: $white50;
-    // margin: 0 1rem;
     @include addBottomPadding(1.5rem);
     padding: 0.35rem 0.4rem !important;
     cursor: pointer;
@@ -237,13 +232,7 @@
     @include addBottomPadding(1.75rem);
   }
 
-  @media screen and (max-width: 530px) {
-    // max-width: 350px;
-  }
-
   @media screen and (max-width: 425px) {
-    // max-width: 300px;
-
     h2 {
       font-size: 1.25rem;
     }
@@ -267,7 +256,6 @@
   > div:not(:last-of-type) {
     border-bottom: solid 3px white;
   }
-
 }
 
 .rowHeadersMobile {

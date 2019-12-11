@@ -162,45 +162,13 @@ const PassInfo = (props) => {
   );
 }
 
-// const PassInfoMobile = (props) => {
-//   if (props.pass) {
-//     return (
-//       <div className={styles.passInfoMobile}>
-//         <div>
-//           <div><h2>All Parties</h2></div>
-//           <div>{props.pass.allParties && <Checkmark/>}</div>
-//         </div>
-//         <div>
-//         <div><h2>Concept Classes</h2></div>
-//           <div>{props.pass.conceptClasses && <Checkmark/>}</div>
-//           </div>
-//         <div>
-//           <div><h2>Solo Classes</h2></div>
-//           <div>{props.pass.soloClasses && <Checkmark/>}</div>
-//         </div>
-//         <div>
-//           <div><h2>Lindy Classes</h2></div>
-//           <div>{props.pass.lindyClasses && <Checkmark/>}</div>
-//         </div>
-//         <div>
-//           <div><h2>Price</h2></div>
-//           <div><h2>{props.pass.price}</h2></div>
-//         </div>
-//       </div>
-//     );
-//   } else {
-//     return null;
-//   }
-// }
-
-
 const RegButton = () => {
   return (
     <div className={`${styles.regButton} blackBackground hideContent`}>
       {/* <div className={styles.button}>
         <h2>Register here</h2>
       </div> */}
-      <p>Registration opens on the 11th of January at 20:00</p>
+      <p>Registration opens on the 11th of January at 20:00 (CET)</p>
     </div>
   );
 }
