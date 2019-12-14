@@ -1,33 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import styles from './styles.module.scss';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import styles from './styles.module.scss';
+import fade from './fade.module.scss';
 
 const SinglePage = () => {
   const [pageObject, setPageObject] = useState();
+  const [showContent, setShowContent] = useState(false);
   const { pageName } = useParams();
 
   useEffect(() => {
-    fetchPage(pageName, setPageObject);
+    fetchPage(pageName, setPageObject, setShowContent);
   }, [pageName]);
   
-  if (pageObject) {
     return (
-      <div>
-        <h1>{pageObject.title.rendered}</h1>
-        <div
-          dangerouslySetInnerHTML={{__html: pageObject.content.rendered}}
-        >
+      <div className={styles.singlePage}>
+        <div className={styles.background}>
+          <TransitionGroup component={null}>
+            {showContent && (
+              <CSSTransition
+                classNames={fade}
+                timeout={2100}
+                unmountOnExit
+              >
+              <div>
+                <h1 className={styles.heading}>{pageObject.title.rendered}</h1>
+                <div
+                  dangerouslySetInnerHTML={{__html: pageObject.content.rendered}}
+                >
+                </div>
+              </div>
+              </CSSTransition>
+            )}
+          </TransitionGroup>
         </div>
       </div>
     );
 
-  }
-  return (
-    <h1>Fetching content...</h1>
-  )
+  
 }
 
-const fetchPage = (pageName, setPageObject) => {
+const fetchPage = (pageName, setPageObject, setShowContent) => {
   let url;
   if (window.location.host.startsWith('localhost')) {
     url = "http://localhost/smokeyfeet/wp/wp-json/wp/v2/pages";
@@ -43,6 +56,7 @@ const fetchPage = (pageName, setPageObject) => {
       return title === pageName;
     });
     setPageObject(page);
+    setShowContent(true);
   })
 
 }

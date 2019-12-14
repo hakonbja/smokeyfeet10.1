@@ -4,7 +4,8 @@
 }
 .home-enter-active,
 .register-enter-active,
-.artists-enter-active {
+.artists-enter-active,
+.single-page-enter-active {
   --delay: 1200ms;
 }
 
@@ -249,6 +250,56 @@
 }
 
 
+/* All single pages */
+
+.single-page-enter,
+.single-page-appear {
+  > div {
+    transform: translateX(-150%);
+    width: 150%;
+    justify-self: right;
+  }
+}
+
+.single-page-enter.single-page-enter-active,
+.single-page-appear.single-page-appear-active {
+  > div {
+    transform: translateX(0);
+    width: 100%;
+    justify-self: right;
+    transition: transform 400ms var(--delay), width 400ms calc(var(--delay) + 400ms);
+  }
+}
+
+.single-page-exit {
+  > div {
+    transform: translateX(0);
+    width: 100%;
+    justify-self: right;
+  }
+
+  > div > * {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.single-page-exit.single-page-exit-active {
+  > div {
+    transform: translateX(-150%);
+    width: 150%;
+    justify-self: right;
+    transition: width 400ms 400ms, transform 400ms 800ms;
+  }
+
+  > div > * {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 400ms;
+  }
+}
+
+
 
 /* All pages on mobile */
 
@@ -274,3 +325,4 @@
   opacity: 0;
   visibility: hidden;
 }
+

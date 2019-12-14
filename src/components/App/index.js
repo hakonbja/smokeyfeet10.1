@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import '../../styles/style.scss';
 import styles from './styles.module.scss';
-import './transitions.scss';
 import Header from '../Header/index.js';
 import Content from '../Content/index';
 import Footer from '../Footer/index.js';
