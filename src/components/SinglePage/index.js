@@ -23,7 +23,7 @@ const SinglePage = () => {
                 timeout={2100}
                 unmountOnExit
               >
-              <div>
+              <div className={styles.content}>
                 <h1 className={styles.heading}>{pageObject.title.rendered}</h1>
                 <div
                   dangerouslySetInnerHTML={{__html: pageObject.content.rendered}}

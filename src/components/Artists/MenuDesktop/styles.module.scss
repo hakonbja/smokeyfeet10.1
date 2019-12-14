@@ -1,13 +1,5 @@
 @import '../../../styles/variables.scss';
 
-// .artists {
-//   max-height: calc(100vh - 125px);
-//   position: relative;
-//   flex-grow: 1;
-//   display: flex;
-//   padding: 0 4.5rem;
-// }
-
 .menu {
   background-color: $black-backgr;
   padding-top: 2rem;
@@ -19,7 +11,6 @@
 
   h1 {
     text-align: center;
-    border-bottom: solid white 8px;
   }
 }
 

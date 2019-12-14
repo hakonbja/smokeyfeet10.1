@@ -79,7 +79,7 @@
 
 .headerDesktop {
   text-align: center;
-  padding: 2rem 0 1rem;
+  padding: 2rem 0 2rem;
   grid-area: header;
   background-color: $black-backgr;
 }
@@ -172,9 +172,9 @@
 
   h1 {
     display: inline-block;
-    font-size: 2.25rem;
+    font-size: 3rem;
     @include addBottomPadding(2.25rem);
-    border-bottom: solid white 4px;
+    // border-bottom: solid white 4px;
     margin-bottom: 1rem;
   }
 }
