@@ -43,8 +43,12 @@
 .bio {
   padding: 0.25rem 0.5rem 0.5rem;
 
-  @media screen and (max-width: 950px) {
-    padding: 0.5rem;
+  @media screen and (max-width: $breakpoint-max) {
+    padding: 1rem;
+  }
+
+  @media screen and (max-width: 425px) {
+    padding: 0.75rem;
   }
 
   h4, p {

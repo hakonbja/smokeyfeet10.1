@@ -9,11 +9,15 @@
   flex-grow: 1;
   margin: 0 4.5rem;
 
-  @media screen and (max-width: 950px) {
+  @media screen and (max-width: $breakpoint-max) {
     display: flex;
     flex-direction: column;
     max-height: none;
     margin: 1rem;
     padding: 0;
+  }
+
+  @media screen and (max-width: 425px) {
+    margin: 0.75rem;
   }
 }
