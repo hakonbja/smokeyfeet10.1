@@ -7,6 +7,7 @@ import Home from '../Home/index.js';
 import Artists from '../Artists/index.js';
 import Register from '../Register/index.js';
 import SinglePage from '../SinglePage/index';
+import Schedule from '../Schedule/index';
 
 const Content = (props) => {  
   const { location } = props;
@@ -54,6 +55,10 @@ const Content = (props) => {
           <Route path="/register" exact 
             render={(props) =>
             <Register {...props} isDesktop={isDesktop}/>
+          }/>
+          <Route path="/schedule" exact 
+            render={(props) =>
+            <Schedule {...props} isDesktop={isDesktop}/>
           }/>
           <Route path="/:pageName" 
             render={(props) =>
