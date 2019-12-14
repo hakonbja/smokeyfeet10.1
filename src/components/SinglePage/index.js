@@ -7,10 +7,11 @@ import fade from './fade.module.scss';
 const SinglePage = () => {
   const [pageObject, setPageObject] = useState();
   const [showContent, setShowContent] = useState(false);
+  const [show404, setShow404] = useState(false);
   const { pageName } = useParams();
 
   useEffect(() => {
-    fetchPage(pageName, setPageObject, setShowContent);
+    fetchPage(pageName, setPageObject, setShowContent, setShow404);
   }, [pageName]);
   
     return (
@@ -32,15 +33,31 @@ const SinglePage = () => {
               </div>
               </CSSTransition>
             )}
+            {show404 && (
+              <CSSTransition
+              classNames={fade}
+              timeout={2100}
+              unmountOnExit
+            >
+              <Error404 />
+            </CSSTransition>
+            )}
           </TransitionGroup>
         </div>
       </div>
     );
-
-  
 }
 
-const fetchPage = (pageName, setPageObject, setShowContent) => {
+const Error404 = () => {
+  return (
+    <div>
+      <h1 className={styles.heading}>Oops...</h1>
+      <h2>Page not found (404)</h2>
+    </div>
+  );
+}
+
+const fetchPage = (pageName, setPageObject, setShowContent, setShow404) => {
   let url;
   if (window.location.host.startsWith('localhost')) {
     url = "http://localhost/smokeyfeet/wp/wp-json/wp/v2/pages";
@@ -50,13 +67,18 @@ const fetchPage = (pageName, setPageObject, setShowContent) => {
 
   fetch(url)
   .then(response => response.json())
-  .then(data => {
+  .then(data => {    
     const page = data.find(item => {
       const title = item.slug;
       return title === pageName;
     });
-    setPageObject(page);
-    setShowContent(true);
+    if (page) {
+      setPageObject(page);
+      setShowContent(true);
+    } else {
+      console.log("show 404");
+      setShow404(true);
+    }
   })
 
 }
