@@ -3,9 +3,3 @@
   text-align: center;
   color: white;
 }
-
-.grid {
-  display: grid;
-  grid-template-columns: 50px repeat(5, 1fr);
-  grid-template-rows: 50px repeat(16, 1fr);
-}
