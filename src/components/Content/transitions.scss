@@ -5,6 +5,7 @@
 .home-enter-active,
 .register-enter-active,
 .artists-enter-active,
+.schedule-enter-active,
 .single-page-enter-active {
   --delay: 1200ms;
 }
@@ -299,6 +300,65 @@
   }
 }
 
+/* Schedule */
+
+.schedule-enter,
+.schedule-appear {
+  > div {
+    justify-self: right;
+    width: 200%;
+    transform: translateX(-100%);
+  }
+
+  > div > * {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.schedule-enter.schedule-enter-active,
+.schedule-appear.schedule-appear-active {
+  > div {
+    justify-self: right;
+    width: 100%;
+    transform: translateX(0);
+    transition: transform 400ms var(--delay), width 400ms calc(var(--delay) + 400ms);
+  }
+  
+  > div > * {
+    visibility: visible;
+    opacity: 1;
+    transition: all 400ms calc(var(--delay) + 800ms);
+  }
+}
+
+.schedule-exit {
+  > div {
+    justify-self: right;
+    width: 100%;
+    transform: translateX(0);
+  }
+  
+  > div > * {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.schedule-exit.schedule-exit-active {
+  > div {
+    justify-self: right;
+    width: 200%;
+    transform: translateX(-100%);
+    transition: width 400ms 400ms, transform 400ms 800ms;
+  }
+  
+  > div > * {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 400ms;
+  }
+}
 
 
 /* All pages on mobile */

@@ -1,0 +1,222 @@
+@import '../../styles/variables.scss';
+
+:root {
+  --rowHeight: 30px; // gets overwritten by JS
+  --firstRowHeight: 75px;
+  --colWidth: 225px;
+
+}
+
+.scheduleWrapper {
+  margin: 0 10%;
+  display: grid;
+  
+  @media screen and (max-width: $breakpoint-max) {
+    margin: 1rem;
+  }
+}
+
+.background {
+  background-color: $black-backgr;
+  // justify-self: right;
+}
+
+.disclaimer {
+  text-align: center;
+  color: white;
+  padding: 1rem 1rem 2rem;
+  font-style: italic;
+}
+
+
+.schedule {
+  display: flex;
+  padding: 0 2rem;
+
+  > div:not(:first-child) > div:nth-child(2) > div:first-child {
+    display: none;
+  }
+
+  @media screen and (max-width: 1380px) {
+    flex-wrap: wrap;
+
+    > div:nth-child(4) > div:nth-child(2) > div:first-child {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    > div:nth-child(4) > div:nth-child(2) > div:first-child {
+      display: none;
+    }
+    > div:nth-child(3) > div:nth-child(2) > div:first-child,
+    > div:nth-child(5) > div:nth-child(2) > div:first-child {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 950px) {
+    padding: 0 1rem;
+
+    > div:nth-child(3) > div:nth-child(2) > div:first-child,
+    > div:nth-child(5) > div:nth-child(2) > div:first-child {
+      display: none;
+    }
+    > div:nth-child(4) > div:nth-child(2) > div:first-child {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    > div:nth-child(4) > div:nth-child(2) > div:first-child {
+      display: none;
+    }
+
+    > div:nth-child(3) > div:nth-child(2) > div:first-child,
+    > div:nth-child(5) > div:nth-child(2) > div:first-child {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    > div > div:nth-child(2) > div:first-child {
+      display: block !important;
+    }
+  }
+
+}
+
+.dayWrapper {
+  flex-grow: 1;
+}
+
+.activitiesWrapper {
+  display: flex;
+}
+
+.colDay {
+  flex-grow: 1;
+  min-width: 200px;
+  padding-top: calc(var(--rowHeight) / 2);
+  
+  @media screen and (max-width: 1380px) {
+    min-width: 250px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    min-width: 300px;
+  }
+  
+  @media screen and (max-width: 950px) {
+    min-width: 200px;
+  }
+  
+  @media screen and (max-width: 750px) {
+    min-width: 250px;
+  }
+  
+  @media screen and (max-width: 650px) {
+    min-width: 175px;
+  }
+  
+  @media screen and (max-width: 500px) {
+    min-width: 200px;
+  }
+  
+  @media screen and (max-width: 350px) {
+    min-width: 150px;
+  }
+}
+
+.colHeader {
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;;
+  }
+
+  p {
+    color: white;
+  }
+}
+
+.colHours {
+  height: 100%;
+  margin-right: 0.5rem;
+}
+
+.hour {
+  height: var(--rowHeight);
+  display: flex;
+  align-items: center;
+  
+  p {
+    color: white;
+  }
+}
+
+.colEvents {
+  position: relative;
+}
+
+.event {
+  position: absolute;
+  background-color: $white90;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+  box-shadow: 2px 3px 4px black;
+
+  h3, h4, p {
+    color: black;
+  }
+
+  h3, p {
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-family: 'Franklin Gothic', sans-serif;
+    text-transform: none;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+}
+
+.infoWrapper {
+  display: flex;
+  justify-content: center;
+
+  svg {
+    flex-shrink: 0;
+    height: 17px;
+    width: 17px;
+    margin-right: 0.25rem;
+  }
+}
+
+.backgroundLines {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.backgroundLine {
+  height: var(--rowHeight);
+  background-image: linear-gradient(to right, $white50 50%, rgba(255, 255, 255, 0) 20%);
+  background-position: top left;
+  background-size: 25px 2px;
+  background-repeat: repeat-x;
+}
