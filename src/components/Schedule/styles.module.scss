@@ -1,9 +1,20 @@
 @import '../../styles/variables.scss';
 
-.scheduleWrapper {
+:root {
+  --rowHeight: 30px; // gets overwritten by JS
   --firstRowHeight: 80px;
-  --rowHeight: 30px;
+  --colWidth: 225px;
 
+  @media screen and (max-width: 1535px) {
+    --colWidth: 200px;
+  }
+
+  @media screen and (max-width: 1370px) {
+    --colWidth: 175px;
+  }
+}
+
+.scheduleWrapper {
   background-color: $black-backgr;
   margin: 0 10%;
 }
@@ -12,7 +23,10 @@
 .schedule {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 50px repeat(5, 200px);
+  grid-template-columns: 50px repeat(5, var(--colWidth));
+  max-width: 1200px;
+  width: calc(50px + 5 * var(--colWidth));
+  margin: 0 auto;
 }
 
 .dayColumn {
@@ -57,6 +71,47 @@
 .event {
   position: absolute;
   background-color: $white90;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+  box-shadow: 2px 3px 4px black;
+
+  h3, h4, p {
+    color: black;
+  }
+
+  h3, p {
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-family: 'Franklin Gothic', sans-serif;
+    text-transform: none;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+}
+
+.infoWrapper {
+  display: flex;
+
+  svg {
+    flex-shrink: 0;
+    height: 17px;
+    width: 17px;
+    margin-right: 0.25rem;
+  }
 }
 
 .backgroundLines {

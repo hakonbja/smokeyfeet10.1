@@ -21,8 +21,8 @@ export default [
         title: "Party",
         startHour: 21,
         endHour: 3,
-        bands: ["Jonathan Stout & His Campus Five feat. Hilary Alexander"],
-        extras: ["Teachers' Intro", "Competition prelims"],
+        bands: ["Jonathan Stout & His Campus Five"],
+        extras: ["Competition prelims"],
         location: "Theater de Omval"
       }
     ]
@@ -37,14 +37,14 @@ export default [
         endHour: 18,
         bands: [],
         extras: ["Lindy Hop", "Solo Jazz"],
-        location: "Universum Science P."
+        location: "Universum Science Park"
       },
       {
         title: "Party",
         startHour: 21,
         endHour: 4,
-        bands: ["Carolina Reapers", "Jonathan Stout & His Campus Five feat. Hilary Alexander"],
-        extras: ["Competition finals", "Jam session"],
+        bands: ["Carolina Reapers", "Jonathan Stout & His Campus Five"],
+        extras: ["Competition finals"],
         location: "Theater de Omval"
       }
     ]
@@ -59,7 +59,7 @@ export default [
         endHour: 18,
         bands: [],
         extras: ["Lindy Hop", "Solo Jazz"],
-        location: "Universum Science P."
+        location: "Universum Science Park"
       },
       {
         title: "Party",
