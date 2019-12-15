@@ -77,8 +77,8 @@ export default [
     events: [
       {
         title: "Party",
-        startHour: 21,
-        endHour: 4,
+        startHour: 20,
+        endHour: 1,
         bands: ["Orange Moon"],
         extras: [],
         location: "De Kompaszaal"

@@ -10,12 +10,26 @@ const Schedule = () => {
   
   return (
     <div className={styles.scheduleWrapper}>
-      <h1 className={univ.heading}>Schedule</h1>
-      <div className={styles.schedule}>
-        <HoursColumn />
-        {scheduleData.map( (schedule, i) => {
-          return <DayColumn schedule={schedule} key={i} />
-        })}
+      <div className={styles.background}>
+        <h1 className={univ.heading}>Schedule</h1>
+        <p className={styles.disclaimer}>This is a preliminary schedule and is subject to change</p>
+        <div className={styles.schedule}>
+          
+          {scheduleData.map( (schedule, i) => {
+            return (
+              <div  key={i} className={styles.dayWrapper}>
+                <div className={styles.colHeader}>
+                  <h2>{schedule.day}</h2>
+                  <p>{schedule.date}</p>
+                </div>
+                <div className={styles.activitiesWrapper}>
+                  <HoursColumn />
+                  <DayColumn schedule={schedule}/>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   );
@@ -47,11 +61,11 @@ const HoursColumn = () => {
 const DayColumn = (props) => {
   const schedule = props.schedule;
   return (
-    <div className={styles.dayColumn}>
-      <div className={styles.colHeader}>
+    <div className={styles.colDay}>
+      {/* <div className={styles.colHeader}>
         <h2>{schedule.day}</h2>
         <p>{schedule.date}</p>
-      </div>
+      </div> */}
       <div className={styles.colEvents}>
         {schedule.events.map( (event, i) => {
           return <Event event={event} key={i} />
@@ -63,13 +77,14 @@ const DayColumn = (props) => {
 }
 
 const Event = (props) => {
-  const rowHeight = 35;
+  const rowHeight = 28;
   document.documentElement.style.setProperty('--rowHeight', rowHeight + 'px');
+  const verticalOffset = 3;
 
   const event = props.event;
   const hour = getHours(event.startHour, event.endHour);
-  const height = getHeight(event.startHour, event.endHour, rowHeight);
-  const topPos = getTopPos(event.startHour, rowHeight);
+  const height = getHeight(event.startHour, event.endHour, rowHeight, verticalOffset);
+  const topPos = getTopPos(event.startHour, rowHeight, verticalOffset);
   const style = {
     height: height,
     top: topPos,
@@ -96,10 +111,10 @@ const BackgroundLines = () => {
   )
 }
 
-const getHeight = (startHour, endHour, rowHeight) => {
+const getHeight = (startHour, endHour, rowHeight, offset) => {
   let length = endHour - startHour;
   length = length < 0 ? length + 24 : length;
-  const height = length * rowHeight + "px";
+  const height = length * rowHeight - offset + "px";
   return height;
 }
 
@@ -110,10 +125,10 @@ const getHours = (startHour, endHour) => {
   return startHour + ":00 - " + endHour + ":00";
 }
 
-const getTopPos = (startHour, rowHeight) => {
+const getTopPos = (startHour, rowHeight, offset) => {
   let startHourNumber = startHour - 12;
   startHourNumber = startHourNumber < 0 ? startHourNumber + 24 : startHourNumber;
-  const topPos = startHourNumber * rowHeight + "px";
+  const topPos = startHourNumber * rowHeight + offset + "px";
   return topPos;
 }
 

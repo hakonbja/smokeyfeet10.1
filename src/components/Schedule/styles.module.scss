@@ -2,37 +2,130 @@
 
 :root {
   --rowHeight: 30px; // gets overwritten by JS
-  --firstRowHeight: 80px;
+  --firstRowHeight: 75px;
   --colWidth: 225px;
 
-  @media screen and (max-width: 1535px) {
-    --colWidth: 200px;
-  }
-
-  @media screen and (max-width: 1370px) {
-    --colWidth: 175px;
-  }
 }
 
 .scheduleWrapper {
-  background-color: $black-backgr;
   margin: 0 10%;
+  display: grid;
+  
+  @media screen and (max-width: $breakpoint-max) {
+    margin: 1rem;
+  }
+}
+
+.background {
+  background-color: $black-backgr;
+  // justify-self: right;
+}
+
+.disclaimer {
+  text-align: center;
+  color: white;
+  padding: 1rem 1rem 2rem;
+  font-style: italic;
 }
 
 
 .schedule {
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 50px repeat(5, var(--colWidth));
-  max-width: 1200px;
-  width: calc(50px + 5 * var(--colWidth));
-  margin: 0 auto;
+  display: flex;
+  padding: 0 2rem;
+
+  > div:not(:first-child) > div:nth-child(2) > div:first-child {
+    display: none;
+  }
+
+  @media screen and (max-width: 1380px) {
+    flex-wrap: wrap;
+
+    > div:nth-child(4) > div:nth-child(2) > div:first-child {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    > div:nth-child(4) > div:nth-child(2) > div:first-child {
+      display: none;
+    }
+    > div:nth-child(3) > div:nth-child(2) > div:first-child,
+    > div:nth-child(5) > div:nth-child(2) > div:first-child {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 950px) {
+    padding: 0 1rem;
+
+    > div:nth-child(3) > div:nth-child(2) > div:first-child,
+    > div:nth-child(5) > div:nth-child(2) > div:first-child {
+      display: none;
+    }
+    > div:nth-child(4) > div:nth-child(2) > div:first-child {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    > div:nth-child(4) > div:nth-child(2) > div:first-child {
+      display: none;
+    }
+
+    > div:nth-child(3) > div:nth-child(2) > div:first-child,
+    > div:nth-child(5) > div:nth-child(2) > div:first-child {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    > div > div:nth-child(2) > div:first-child {
+      display: block !important;
+    }
+  }
+
 }
 
-.dayColumn {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 80px 1fr;
+.dayWrapper {
+  flex-grow: 1;
+}
+
+.activitiesWrapper {
+  display: flex;
+}
+
+.colDay {
+  flex-grow: 1;
+  min-width: 200px;
+  padding-top: calc(var(--rowHeight) / 2);
+  
+  @media screen and (max-width: 1380px) {
+    min-width: 250px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    min-width: 300px;
+  }
+  
+  @media screen and (max-width: 950px) {
+    min-width: 200px;
+  }
+  
+  @media screen and (max-width: 750px) {
+    min-width: 250px;
+  }
+  
+  @media screen and (max-width: 650px) {
+    min-width: 175px;
+  }
+  
+  @media screen and (max-width: 500px) {
+    min-width: 200px;
+  }
+  
+  @media screen and (max-width: 350px) {
+    min-width: 150px;
+  }
 }
 
 .colHeader {
@@ -49,9 +142,7 @@
 
 .colHours {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding-top: calc(var(--firstRowHeight) - var(--rowHeight) / 2);
+  margin-right: 0.5rem;
 }
 
 .hour {
@@ -94,6 +185,7 @@
     text-transform: none;
     font-size: 1rem;
     margin-bottom: 0.75rem;
+    text-align: center;
   }
 
   p {
@@ -105,6 +197,7 @@
 
 .infoWrapper {
   display: flex;
+  justify-content: center;
 
   svg {
     flex-shrink: 0;
