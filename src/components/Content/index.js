@@ -20,7 +20,7 @@ const Content = (props) => {
     if (!isDesktop) {
       return "mobile";
     }
-    const includedPages = ["home", "register", "artists"];
+    const includedPages = ["home", "register", "artists", "schedule"];
     let currentLocation = location.pathname.split("/")[1];
     if (currentLocation === "") currentLocation = "home";
 
