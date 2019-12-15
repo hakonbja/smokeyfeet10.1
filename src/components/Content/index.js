@@ -6,6 +6,7 @@ import './transitions.scss';
 import Home from '../Home/index.js';
 import Artists from '../Artists/index.js';
 import Register from '../Register/index.js';
+import Schedule from '../Schedule/index.js';
 import SinglePage from '../SinglePage/index';
 
 const Content = (props) => {  
@@ -55,6 +56,7 @@ const Content = (props) => {
             render={(props) =>
             <Register {...props} isDesktop={isDesktop}/>
           }/>
+          <Route path="/schedule" exact component={Schedule} />
           <Route path="/:pageName" 
             render={(props) =>
             <SinglePage {...props} isDesktop={isDesktop}/>
