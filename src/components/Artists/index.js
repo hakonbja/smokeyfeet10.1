@@ -13,13 +13,14 @@ const Artists = (props) => {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    fetchArtists(setArtists);
-    const redirectTimer = setTimeout(() => setRedirect(true), 1500);
+    let timeout = props.isDesktop ? 1500 : 0;
+    fetchArtists(setArtists);    
+    const redirectTimer = setTimeout(() => setRedirect(true), timeout);
 
     return function cleanUp() {
       clearTimeout(redirectTimer);
     }
-  }, []);
+  }, [props.isDesktop]);
 
   const ArtistsMenu = props.isDesktop ? <MenuDesktop artists={artists.info}/> : <MenuMobile artists={artists.info}/>;
 

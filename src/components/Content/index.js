@@ -13,8 +13,7 @@ const Content = (props) => {
   const { location } = props;
   let isDesktop = props.isDesktop; // for some reason using props.isDesktop in the Route returns undefined
    
-  const timeout = isDesktop ? { appear: 1200, enter: 2250, exit: 1050 } : 300;
-  // const timeout = 2000;
+  const timeout = isDesktop ? { appear: 1200, enter: 2250, exit: 1050 } : 400;
 
   const getClass = ((isDesktop, location) => {
     if (!isDesktop) {
