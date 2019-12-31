@@ -8,6 +8,7 @@ import Artists from '../Artists/index.js';
 import Register from '../Register/index.js';
 import Schedule from '../Schedule/index.js';
 import SinglePage from '../SinglePage/index';
+import FAQ from '../FAQ/index';
 
 const Content = (props) => {  
   const { location } = props;
@@ -56,6 +57,7 @@ const Content = (props) => {
             <Register {...props} isDesktop={isDesktop}/>
           }/>
           <Route path="/schedule" exact component={Schedule} />
+          <Route path="/faq" exact component={FAQ} />
           <Route path="/:pageName" 
             render={(props) =>
             <SinglePage {...props} isDesktop={isDesktop}/>

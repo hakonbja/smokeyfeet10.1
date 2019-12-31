@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss';
+
+.faqs {
+  margin: 0 10%;
+  display: grid;
+  
+  @media screen and (max-width: $breakpoint-max) {
+    font-size: 12px;
+    margin: 1rem;
+  }
+
+  @media screen and (max-width: 425px) {
+    font-size: 10px;
+    margin: 0.75rem;
+  }
+}
+
+.background {
+  background-color: $black-backgr;
+  height: 100%;
+  padding: 1rem 3rem;
+  
+  @media screen and (max-width: $breakpoint-max) {
+    padding: 1rem;
+  }
+  
+  @media screen and (max-width: 425px) {
+    padding: 0.75rem;
+  }
+}
