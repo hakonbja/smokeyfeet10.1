@@ -7,9 +7,10 @@ export default [
         title: "Party",
         startHour: 20,
         endHour: 1,
-        bands: ["Hommage"],
+        bands: [{name: "Hommage", slug: ""}],
         extras: [],
-        location: "De Kompaszaal"
+        location: "De Kompaszaal",
+        locationId: "kompaszaal",
       }
     ]
   },
@@ -21,9 +22,10 @@ export default [
         title: "Party",
         startHour: 21,
         endHour: 3,
-        bands: ["Jonathan Stout & His Campus Five"],
+        bands: [{name: "Jonathan Stout & His Campus Five", slug: "jonathan-stout-his-campus-five"}],
         extras: ["Competition prelims"],
-        location: "Theater de Omval"
+        location: "Theater de Omval",
+        locationId: "omval",
       }
     ]
   },
@@ -37,15 +39,17 @@ export default [
         endHour: 18,
         bands: [],
         extras: ["Lindy Hop", "Solo Jazz"],
-        location: "Universum Science Park"
+        location: "Universum Science Park",
+        locationId: "usc",
       },
       {
         title: "Party",
         startHour: 21,
         endHour: 4,
-        bands: ["Carolina Reapers", "Jonathan Stout & His Campus Five"],
+        bands: [{name: "Carolina Reapers", slug: "carolina-reapers"}, {name: "Jonathan Stout & His Campus Five", slug: "jonathan-stout-his-campus-five"}],
         extras: ["Competition finals"],
-        location: "Theater de Omval"
+        location: "Theater de Omval",
+        locationId: "omval",
       }
     ]
   },
@@ -59,15 +63,17 @@ export default [
         endHour: 18,
         bands: [],
         extras: ["Lindy Hop", "Solo Jazz"],
-        location: "Universum Science Park"
+        location: "Universum Science Park",
+        locationId: "usc",
       },
       {
         title: "Party",
         startHour: 21,
         endHour: 4,
-        bands: ["Carolina Reapers"],
+        bands: [{name: "Carolina Reapers", slug: "carolina-reapers"}],
         extras: ["Performances"],
-        location: "Theater de Omval"
+        location: "Theater de Omval",
+        locationId: "omval",
       }
     ]
   },
@@ -79,9 +85,10 @@ export default [
         title: "Party",
         startHour: 20,
         endHour: 1,
-        bands: ["Orange Moon"],
+        bands: [{name: "Orange Moon", slug: ""}],
         extras: [],
-        location: "De Kompaszaal"
+        location: "De Kompaszaal",
+        locationId: "kompaszaal",
       }
     ]
   },

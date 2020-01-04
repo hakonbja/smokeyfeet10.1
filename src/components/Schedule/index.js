@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 import univ from '../../styles/universal.module.scss';
 import scheduleData from './scheduleData';
@@ -94,9 +95,9 @@ const Event = (props) => {
     <div className={styles.event} style={style} >
       <h3>{event.title}</h3>
       <p>{hour}</p>
-      {event.bands.map( (band, i) => <div className={styles.infoWrapper} key={i}><MusicNotes/><h4>{band}</h4></div>)}
+      {event.bands.map( (band, i) => <div className={styles.infoWrapper} key={i}><MusicNotes/><Link to={"/artists/"}><h4>{band.name}</h4></Link></div>)}
       {event.extras.map( (extra, i) => <div className={styles.infoWrapper} key={i}><Star/><h4>{extra}</h4></div>)}
-      <div className={styles.infoWrapper}><LocationPin/><h4>{event.location}</h4></div>
+      <div className={styles.infoWrapper}><LocationPin/><Link to="/venues"><h4>{event.location}</h4></Link></div>
     </div>
   )
 }
