@@ -1,80 +1,76 @@
 @import '../../styles/variables.scss';
 
-.singlePage {
-  margin: 0 10%;
-  display: grid;
+// .singlePage {
+//   margin: 0 10%;
+//   display: grid;
 
-  h1, h2, h3, h4, h5, h6,
-  p, li, a {
-    color: white;
-  }
+//   h1, h2, h3, h4, h5, h6,
+//   p, li, a {
+//     color: white;
+//   }
 
-  li,
-  p {
-    font-size: 1rem;
-    line-height: 1.15;
-  }
+//   li,
+//   p {
+//     font-size: 1rem;
+//     line-height: 1.15;
+//   }
 
-  h1, h2, h3, h4, h5, h6 {
-    margin: 1rem 0 0.5rem;
-  }
+//   h1, h2, h3, h4, h5, h6 {
+//     margin: 1rem 0 0.5rem;
+//   }
 
-  p {
-    margin: 0.5rem 0 0.5rem;
-  }
+//   p {
+//     margin: 0.5rem 0 0.5rem;
+//   }
 
-  ul, li {
-    list-style: disc inside;
-  }
+//   ul, li {
+//     list-style: disc inside;
+//   }
 
-  ul {
-    margin-bottom: 0.5rem;
-  }
+//   ul {
+//     margin-bottom: 0.5rem;
+//   }
 
-  a {
-    text-decoration: underline;
-    transition: color 200ms;
+//   a {
+//     text-decoration: underline;
+//     transition: color 200ms;
     
-    &:hover {
-      color: $orange;
-    }
-  }
+//     &:hover {
+//       color: $orange;
+//     }
+//   }
 
-  em {
-    font-style: italic;
-  }
+//   em {
+//     font-style: italic;
+//   }
 
-  strong {
-    font-weight: bold;
-  }
+//   strong {
+//     font-weight: bold;
+//   }
 
-  @media screen and (max-width: $breakpoint-max) {
-    font-size: 12px;
-    margin: 1rem;
-  }
+//   @media screen and (max-width: $breakpoint-max) {
+//     font-size: 12px;
+//     margin: 1rem;
+//   }
 
-  @media screen and (max-width: 425px) {
-    font-size: 10px;
-    margin: 0.75rem;
-  }
-}
+//   @media screen and (max-width: 425px) {
+//     font-size: 10px;
+//     margin: 0.75rem;
+//   }
+// }
 
-.background {
-  background-color: $black-backgr;
-  height: 100%;
-  padding: 1rem 3rem;
+// .background {
+//   background-color: $black-backgr;
+//   height: 100%;
+//   padding: 1rem 3rem;
   
-  @media screen and (max-width: $breakpoint-max) {
-    padding: 1rem;
-  }
+//   @media screen and (max-width: $breakpoint-max) {
+//     padding: 1rem;
+//   }
   
-  @media screen and (max-width: 425px) {
-    padding: 0.75rem;
-  }
-}
-
-.heading {
-  text-align: center;
-}
+//   @media screen and (max-width: 425px) {
+//     padding: 0.75rem;
+//   }
+// }
 
 

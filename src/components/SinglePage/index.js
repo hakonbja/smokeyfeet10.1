@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styles from './styles.module.scss';
+import univ from '../../styles/universal.module.scss';
 import fade from './fade.module.scss';
 
 const SinglePage = () => {
@@ -14,38 +15,38 @@ const SinglePage = () => {
     fetchPage(pageName, setPageObject, setShowContent, setShow404);
   }, [pageName]);
   
-    return (
-      <div className={styles.singlePage}>
-        <div className={styles.background}>
-          <TransitionGroup component={null}>
-            {showContent && (
-              <CSSTransition
-                classNames={fade}
-                timeout={2100}
-                unmountOnExit
-              >
-              <div className={styles.content}>
-                <h1 className={styles.heading}>{pageObject.title.rendered}</h1>
-                <div
-                  dangerouslySetInnerHTML={{__html: pageObject.content.rendered}}
-                >
-                </div>
-              </div>
-              </CSSTransition>
-            )}
-            {show404 && (
-              <CSSTransition
+  return (
+    <div className={univ.singlePage}>
+      <div className={univ.background}>
+        <TransitionGroup component={null}>
+          {showContent && (
+            <CSSTransition
               classNames={fade}
-              timeout={2100}
+              timeout={2200}
               unmountOnExit
             >
-              <Error404 />
+            <div className={styles.content}>
+              <h1 className={univ.heading}>{pageObject.title.rendered}</h1>
+              <div
+                dangerouslySetInnerHTML={{__html: pageObject.content.rendered}}
+              >
+              </div>
+            </div>
             </CSSTransition>
-            )}
-          </TransitionGroup>
-        </div>
+          )}
+          {show404 && (
+            <CSSTransition
+            classNames={fade}
+            timeout={2100}
+            unmountOnExit
+          >
+            <Error404 />
+          </CSSTransition>
+          )}
+        </TransitionGroup>
       </div>
-    );
+    </div>
+  );
 }
 
 const Error404 = () => {
@@ -76,7 +77,6 @@ const fetchPage = (pageName, setPageObject, setShowContent, setShow404) => {
       setPageObject(page);
       setShowContent(true);
     } else {
-      console.log("show 404");
       setShow404(true);
     }
   })
