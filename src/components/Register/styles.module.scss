@@ -8,7 +8,19 @@
   p {
     text-transform: none;
     color: white;
+    margin-bottom: 0.5rem;
   }
+
+  a {
+    text-decoration: underline;
+    color: white;
+    transition: color 200ms;
+    
+    &:hover {
+      color: $orange;
+    }
+  }
+
 
   @media screen and (min-width: $breakpoint-min) {
     text-align: center;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { ReactComponent as Checkmark } from '../../assets/img/checkmark.svg';
 
@@ -169,6 +170,7 @@ const RegButton = () => {
         <h2>Register here</h2>
       </div> */}
       <p>Registration opens on the 11th of January at 20:00 (CET)</p>
+      <p>Read the <Link to="/registration-info">Registration Info</Link> carefully before registering</p>
     </div>
   );
 }
