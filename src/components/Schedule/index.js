@@ -96,7 +96,7 @@ const Event = (props) => {
       <h3>{event.title}</h3>
       <p>{hour}</p>
       {event.bands.map( (band, i) => <div className={styles.infoWrapper} key={i}><MusicNotes/><Link to={"/artists/"}><h4>{band.name}</h4></Link></div>)}
-      {event.extras.map( (extra, i) => <div className={styles.infoWrapper} key={i}><Star/><h4>{extra}</h4></div>)}
+  {event.extras.map( (extra, i) => <div className={styles.infoWrapper} key={i}><Star/><h4>{extra.name} {extra.hour && <span className={styles.extraHour}>({extra.hour})</span>}</h4></div>)}
       <div className={styles.infoWrapper}><LocationPin/><Link to="/venues"><h4>{event.location}</h4></Link></div>
     </div>
   )
