@@ -20,7 +20,7 @@ export default [
     events: [
       {
         title: "Party",
-        startHour: 21,
+        startHour: 20,
         endHour: 3,
         bands: [{name: "Jonathan Stout & His Campus Five", slug: "jonathan-stout-his-campus-five"}],
         extras: [{name: "Competition prelims"}],
@@ -44,7 +44,7 @@ export default [
       },
       {
         title: "Party",
-        startHour: 21,
+        startHour: 20,
         endHour: 4,
         bands: [{name: "Carolina Reapers", slug: "carolina-reapers"}, {name: "Jonathan Stout & His Campus Five", slug: "jonathan-stout-his-campus-five"}],
         extras: [{name: "Competition finals"}],
@@ -68,7 +68,7 @@ export default [
       },
       {
         title: "Party",
-        startHour: 21,
+        startHour: 20,
         endHour: 4,
         bands: [{name: "Carolina Reapers", slug: "carolina-reapers"}],
         extras: [{name: "Performances"}],
