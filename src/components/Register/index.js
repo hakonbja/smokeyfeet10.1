@@ -166,7 +166,7 @@ const PassInfo = (props) => {
 const RegButton = () => {
   return (
     <div className={`${styles.regButton} blackBackground hideContent`}>
-      <p>Registration opens <a href="https://tickets.smokeyfeet.com" target="_blank">here</a> on the 11th of January at 20:00 CET</p>
+      <p>Registration opens <a href="https://tickets.smokeyfeet.com" target="_blank" rel="noopener noreferrer">here</a> on the 11th of January at 20:00 CET</p>
       <p>Read the <Link to="/registration-info">Registration Info</Link> carefully before registering</p>
     </div>
   );
