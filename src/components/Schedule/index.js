@@ -6,6 +6,7 @@ import scheduleData from './scheduleData';
 import { ReactComponent as MusicNotes } from '../../assets/img/music-notes.svg';
 import { ReactComponent as Star } from '../../assets/img/star.svg';
 import { ReactComponent as LocationPin } from '../../assets/img/location-pin.svg';
+import classSchedule from '../../files/sf2020_class_schedule.pdf';
 
 const Schedule = () => {
   
@@ -13,7 +14,7 @@ const Schedule = () => {
     <div className={styles.scheduleWrapper}>
       <div className={styles.background}>
         <h1 className={univ.heading}>Schedule</h1>
-        <p className={styles.disclaimer}>This is a preliminary schedule and is subject to change</p>
+        <p className={styles.disclaimer}>This is a preliminary schedule. For a more detailed class schedule <a href={classSchedule} target="_blank" rel="noopener noreferrer">click here</a>.</p>
         <div className={styles.schedule}>
           
           {scheduleData.map( (schedule, i) => {
@@ -78,7 +79,7 @@ const DayColumn = (props) => {
 }
 
 const Event = (props) => {
-  const rowHeight = 28;
+  const rowHeight = 30;
   document.documentElement.style.setProperty('--rowHeight', rowHeight + 'px');
   const verticalOffset = 3;
 

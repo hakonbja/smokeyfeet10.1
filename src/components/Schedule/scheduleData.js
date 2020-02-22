@@ -23,7 +23,7 @@ export default [
         startHour: 20,
         endHour: 3,
         bands: [{name: "Jonathan Stout & His Campus Five", slug: "jonathan-stout-his-campus-five"}],
-        extras: [{name: "Competition prelims"}],
+        extras: [{name: "Concept Class", hour: "19:30"}, {name: "Competition Prelims", hour: "20:30"}],
         location: "Theater de Omval",
         locationId: "omval",
       }
@@ -47,7 +47,7 @@ export default [
         startHour: 20,
         endHour: 4,
         bands: [{name: "Carolina Reapers", slug: "carolina-reapers"}, {name: "Jonathan Stout & His Campus Five", slug: "jonathan-stout-his-campus-five"}],
-        extras: [{name: "Competition finals"}],
+        extras: [{name: "Concept Class", hour: "20:00"}, {name: "Competition Finals"}],
         location: "Theater de Omval",
         locationId: "omval",
       }
@@ -71,7 +71,7 @@ export default [
         startHour: 20,
         endHour: 4,
         bands: [{name: "Carolina Reapers", slug: "carolina-reapers"}],
-        extras: [{name: "Performances"}],
+        extras: [{name: "Concept Class", hour: "20:30"}, {name: "Performances"}],
         location: "Theater de Omval",
         locationId: "omval",
       }
